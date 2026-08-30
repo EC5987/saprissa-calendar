@@ -684,6 +684,12 @@ def spanish_status(value: str) -> str:
     return statuses.get(value, value)
 
 
+def format_location(venue: str) -> str:
+    if venue.lower().startswith("estadio "):
+        return venue
+    return f"Estadio {venue}"
+
+
 def write_ics(path: Path, matches: Iterable[Match]) -> None:
     lines: list[str] = [
         "BEGIN:VCALENDAR",
@@ -717,8 +723,6 @@ def write_ics(path: Path, matches: Iterable[Match]) -> None:
             match.source_url,
             match.live_score_url,
         ]
-        if match.venue:
-            description_lines.insert(1, f"Estadio {match.venue}")
 
         lines.append("BEGIN:VEVENT")
         add_ics_line(lines, f"UID:{match.id}@saprissa-calendar.ec5987")
@@ -738,7 +742,7 @@ def write_ics(path: Path, matches: Iterable[Match]) -> None:
             add_ics_line(lines, f"DTEND;TZID={TIMEZONE_ID}:{end_dt}")
 
         if match.venue:
-            add_ics_line(lines, f"LOCATION:{ics_escape(match.venue)}")
+            add_ics_line(lines, f"LOCATION:{ics_escape(format_location(match.venue))}")
         add_ics_line(lines, f"DESCRIPTION:{ics_escape(chr(10).join(description_lines))}")
         lines.append("END:VEVENT")
 

@@ -1,4 +1,4 @@
-# Saprissa Calendar
+# Saprissa - Calendario
 
 A small, dependency-free Python project that publishes a subscribable iCal feed for Deportivo Saprissa matches.
 

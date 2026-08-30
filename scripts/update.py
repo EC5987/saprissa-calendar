@@ -22,6 +22,7 @@ AISCORE_URL = "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw"
 TEAM_NAME = "Deportivo Saprissa"
 TIMEZONE_ID = "America/Costa_Rica"
 SEASON_START = date(2026, 7, 1)
+CALENDAR_NAME = "Saprissa - Calendario"
 
 MONTHS = {
     "jan": 1,
@@ -643,7 +644,7 @@ def write_ics(path: Path, matches: Iterable[Match]) -> None:
         "PRODID:-//EC5987//Saprissa Calendar//EN",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
-        "X-WR-CALNAME:Saprissa Calendar",
+        f"X-WR-CALNAME:{CALENDAR_NAME}",
         f"X-WR-TIMEZONE:{TIMEZONE_ID}",
         "BEGIN:VTIMEZONE",
         f"TZID:{TIMEZONE_ID}",

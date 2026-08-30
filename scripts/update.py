@@ -637,6 +637,14 @@ def format_ics_datetime(match: Match) -> str:
     return datetime.combine(parsed_date, parsed_time).strftime("%Y%m%dT%H%M%S")
 
 
+def spanish_status(value: str) -> str:
+    statuses = {
+        "scheduled": "programado",
+        "final": "finalizado",
+    }
+    return statuses.get(value, value)
+
+
 def write_ics(path: Path, matches: Iterable[Match]) -> None:
     lines: list[str] = [
         "BEGIN:VCALENDAR",
@@ -665,12 +673,12 @@ def write_ics(path: Path, matches: Iterable[Match]) -> None:
 
         description_lines = [
             match.competition,
-            f"Status: {match.status}",
-            f"Official source: {match.source_url}",
-            f"Live score: {match.live_score_url}",
+            f"Estado: {spanish_status(match.status)}",
+            f"Saprissa: {match.source_url}",
+            f"AiScore: {match.live_score_url}",
         ]
         if match.venue:
-            description_lines.insert(1, f"Venue: {match.venue}")
+            description_lines.insert(1, f"Estadio: {match.venue}")
 
         lines.append("BEGIN:VEVENT")
         add_ics_line(lines, f"UID:{match.id}@saprissa-calendar.ec5987")
@@ -692,7 +700,6 @@ def write_ics(path: Path, matches: Iterable[Match]) -> None:
         if match.venue:
             add_ics_line(lines, f"LOCATION:{ics_escape(match.venue)}")
         add_ics_line(lines, f"DESCRIPTION:{ics_escape(chr(10).join(description_lines))}")
-        add_ics_line(lines, f"URL:{match.source_url}")
         lines.append("END:VEVENT")
 
     lines.append("END:VCALENDAR")

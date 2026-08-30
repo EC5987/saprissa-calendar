@@ -503,7 +503,7 @@ def enrich_scores(matches: list[Match], scores: list[dict]) -> None:
             if score["month"] != match_date.month or score["day"] != match_date.day:
                 continue
             if teams_match(match.home_team, score["home_team"]) and teams_match(match.away_team, score["away_team"]):
-                match.status = "final"
+                match.status = "final" if likely_finished(match) else "in_progress"
                 match.home_score = score["home_score"]
                 match.away_score = score["away_score"]
                 break
@@ -568,11 +568,49 @@ def match_has_started(match: Match) -> bool:
     return start <= now
 
 
+def likely_finished(match: Match) -> bool:
+    match_date = date.fromisoformat(match.date)
+    now = datetime.now(timezone(timedelta(hours=-6)))
+
+    if not match.time:
+        return match_date < now.date()
+
+    match_time = time.fromisoformat(match.time)
+    start = datetime.combine(match_date, match_time, tzinfo=timezone(timedelta(hours=-6)))
+    return now >= start + timedelta(hours=6)
+
+
 def needs_aiscore_enrichment(matches: list[Match]) -> bool:
     for match in matches:
         if not match_has_started(match):
             continue
         if match.status != "final" or match.home_score is None or match.away_score is None:
+            return True
+    return False
+
+
+def is_match_window_now(match: Match) -> bool:
+    match_date = date.fromisoformat(match.date)
+    now = datetime.now(timezone(timedelta(hours=-6)))
+
+    if not match.time:
+        return match_date == now.date()
+
+    match_time = time.fromisoformat(match.time)
+    start = datetime.combine(match_date, match_time, tzinfo=timezone(timedelta(hours=-6)))
+    return start - timedelta(minutes=30) <= now <= start + timedelta(hours=6)
+
+
+def should_run_match_window_update(existing: list[dict]) -> bool:
+    if not existing:
+        return True
+
+    for item in existing:
+        try:
+            match = Match.from_dict(item)
+        except (KeyError, TypeError, ValueError):
+            continue
+        if is_match_window_now(match):
             return True
     return False
 
@@ -640,6 +678,7 @@ def format_ics_datetime(match: Match) -> str:
 def spanish_status(value: str) -> str:
     statuses = {
         "scheduled": "programado",
+        "in_progress": "en vivo",
         "final": "finalizado",
     }
     return statuses.get(value, value)
@@ -668,7 +707,7 @@ def write_ics(path: Path, matches: Iterable[Match]) -> None:
 
     for match in matches:
         summary = f"{match.home_team} - {match.away_team}"
-        if match.status == "final" and match.home_score is not None and match.away_score is not None:
+        if match.status in {"final", "in_progress"} and match.home_score is not None and match.away_score is not None:
             summary += f" ({match.home_score}-{match.away_score})"
 
         description_lines = [
@@ -712,6 +751,10 @@ def run(args: argparse.Namespace) -> int:
     data_file = Path(args.data_file)
     ics_file = Path(args.ics_file)
     existing = load_existing(data_file)
+
+    if args.match_window_only and not should_run_match_window_update(existing):
+        print("No known match is currently near its live window. Skipping update.")
+        return 0
 
     fixture_matches: list[Match] = []
     result_matches: list[Match] = []
@@ -761,6 +804,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--data-file", default="data/matches.json")
     parser.add_argument("--ics-file", default="public/saprissa.ics")
     parser.add_argument("--no-aiscore", action="store_true", help="Skip best-effort AiScore score enrichment.")
+    parser.add_argument(
+        "--match-window-only",
+        action="store_true",
+        help="Skip quickly unless stored match data shows a match is near kickoff or currently live.",
+    )
     return parser
 
 

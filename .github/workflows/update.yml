@@ -3,6 +3,7 @@ name: Update Saprissa calendar
 on:
   workflow_dispatch:
   schedule:
+    - cron: "*/15 * * * *"
     - cron: "17 * * * *"
 
 permissions:
@@ -28,7 +29,12 @@ jobs:
           python-version: "3.x"
 
       - name: Update match data and calendar
-        run: python scripts/update.py
+        run: |
+          if [ "${{ github.event.schedule }}" = "*/15 * * * *" ]; then
+            python scripts/update.py --match-window-only
+          else
+            python scripts/update.py
+          fi
 
       - name: Check for generated changes
         id: changes

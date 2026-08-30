@@ -1,0 +1,304 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//EC5987//Saprissa Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Saprissa Calendar
+X-WR-TIMEZONE:America/Costa_Rica
+BEGIN:VTIMEZONE
+TZID:America/Costa_Rica
+X-LIC-LOCATION:America/Costa_Rica
+BEGIN:STANDARD
+TZOFFSETFROM:-0600
+TZOFFSETTO:-0600
+TZNAME:CST
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:d49197a58fad67a3@saprissa-calendar.ec5987
+DTSTAMP:20260830T061138Z
+SUMMARY:Deportivo Saprissa - Herediano (0-1)
+DTSTART;TZID=America/Costa_Rica:20260717T200000
+DTEND;TZID=America/Costa_Rica:20260717T220000
+LOCATION:Fello Meza
+DESCRIPTION:Primera División - Re Copa\nVenue: Fello Meza\nStatus: final\n
+ Official source: https://www.saprissa.com/partidos/recopa-2026-sap-her-fel
+ lo\nLive score: https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20
+ i27jw
+URL:https://www.saprissa.com/partidos/recopa-2026-sap-her-fello
+END:VEVENT
+BEGIN:VEVENT
+UID:cd63f43ffc6ebe88@saprissa-calendar.ec5987
+DTSTAMP:20260830T061138Z
+SUMMARY:Deportivo Saprissa - Pérez Zeledón (5-1)
+DTSTART;TZID=America/Costa_Rica:20260724T200000
+DTEND;TZID=America/Costa_Rica:20260724T220000
+LOCATION:Ricardo Saprissa
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Ricardo Saprissa
+ \nStatus: final\nOfficial source: https://www.saprissa.com/partidos/masc-a
+ pertura2026-saprissa-pz\nLive score: https://www.aiscore.com/team-deportiv
+ o-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-saprissa-pz
+END:VEVENT
+BEGIN:VEVENT
+UID:9e951d7fdbfde0f8@saprissa-calendar.ec5987
+DTSTAMP:20260830T061138Z
+SUMMARY:UMECIT - Deportivo Saprissa (1-2)
+DTSTART;TZID=America/Costa_Rica:20260729T190000
+DTEND;TZID=America/Costa_Rica:20260729T210000
+LOCATION:Panamá
+DESCRIPTION:Primera División - Liga Concacaf\nVenue: Panamá\nStatus: fina
+ l\nOfficial source: https://www.saprissa.com/partidos/centroamericana-umec
+ it-saprissa\nLive score: https://www.aiscore.com/team-deportivo-saprissa/o
+ 17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/centroamericana-umecit-saprissa
+END:VEVENT
+BEGIN:VEVENT
+UID:ef6dbd4aac5598ad@saprissa-calendar.ec5987
+DTSTAMP:20260830T061138Z
+SUMMARY:Deportivo Saprissa - San Carlos (2-1)
+DTSTART;TZID=America/Costa_Rica:20260802T160000
+DTEND;TZID=America/Costa_Rica:20260802T180000
+LOCATION:Ricardo Saprissa
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Ricardo Saprissa
+ \nStatus: final\nOfficial source: https://www.saprissa.com/partidos/masc-a
+ pertura2026-saprissa-sancarlos\nLive score: https://www.aiscore.com/team-d
+ eportivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-saprissa-sancarlos
+END:VEVENT
+BEGIN:VEVENT
+UID:0842953904cd9ebb@saprissa-calendar.ec5987
+DTSTAMP:20260830T061138Z
+SUMMARY:Puntarenas - Deportivo Saprissa (0-2)
+DTSTART;TZID=America/Costa_Rica:20260808T200000
+DTEND;TZID=America/Costa_Rica:20260808T220000
+LOCATION:Lito Pérez
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Lito Pérez\nSta
+ tus: final\nOfficial source: https://www.saprissa.com/partidos/masc-apertu
+ ra2026-pfc-saprissa\nLive score: https://www.aiscore.com/team-deportivo-sa
+ prissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-pfc-saprissa
+END:VEVENT
+BEGIN:VEVENT
+UID:eb82fd6f73526932@saprissa-calendar.ec5987
+DTSTAMP:20260830T061138Z
+SUMMARY:Deportivo Saprissa - Mixco (3-0)
+DTSTART;TZID=America/Costa_Rica:20260811T200000
+DTEND;TZID=America/Costa_Rica:20260811T220000
+LOCATION:Ricardo Saprissa
+DESCRIPTION:Primera División - Liga Concacaf\nVenue: Ricardo Saprissa\nSta
+ tus: final\nOfficial source: https://www.saprissa.com/partidos/centroameri
+ cana-saprissa-mixco\nLive score: https://www.aiscore.com/team-deportivo-sa
+ prissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/centroamericana-saprissa-mixco
+END:VEVENT
+BEGIN:VEVENT
+UID:3abc0cf7ea57d903@saprissa-calendar.ec5987
+DTSTAMP:20260830T061138Z
+SUMMARY:Deportivo Saprissa - Cartaginés (3-2)
+DTSTART;TZID=America/Costa_Rica:20260815T200000
+DTEND;TZID=America/Costa_Rica:20260815T220000
+LOCATION:Ricardo Saprissa
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Ricardo Saprissa
+ \nStatus: final\nOfficial source: https://www.saprissa.com/partidos/masc-a
+ pertura2026-saprissa-csc\nLive score: https://www.aiscore.com/team-deporti
+ vo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-saprissa-csc
+END:VEVENT
+BEGIN:VEVENT
+UID:89da125e03b0a612@saprissa-calendar.ec5987
+DTSTAMP:20260830T061138Z
+SUMMARY:Inter San Carlos - Deportivo Saprissa (1-0)
+DTSTART;TZID=America/Costa_Rica:20260823T150000
+DTEND;TZID=America/Costa_Rica:20260823T170000
+LOCATION:Inter San Carlos
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Inter San Carlos
+ \nStatus: final\nOfficial source: https://www.saprissa.com/partidos/masc-a
+ pertura2026-inter-saprissa\nLive score: https://www.aiscore.com/team-depor
+ tivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-inter-saprissa
+END:VEVENT
+BEGIN:VEVENT
+UID:0e349ab6e575a048@saprissa-calendar.ec5987
+DTSTAMP:20260830T061138Z
+SUMMARY:Olimpia - Deportivo Saprissa (2-1)
+DTSTART;TZID=America/Costa_Rica:20260827T203000
+DTEND;TZID=America/Costa_Rica:20260827T223000
+LOCATION:Chelato Uclés
+DESCRIPTION:Primera División - Liga Concacaf\nVenue: Chelato Uclés\nStatu
+ s: final\nOfficial source: https://www.saprissa.com/partidos/centroamerica
+ na-olimpia-saprissa\nLive score: https://www.aiscore.com/team-deportivo-sa
+ prissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/centroamericana-olimpia-saprissa
+END:VEVENT
+BEGIN:VEVENT
+UID:1c17c66fbd069a33@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:Deportivo Saprissa - Escorpiones
+DTSTART;TZID=America/Costa_Rica:20260830T180000
+DTEND;TZID=America/Costa_Rica:20260830T200000
+LOCATION:Ricardo Saprissa
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Ricardo Saprissa
+ \nStatus: scheduled\nOfficial source: https://www.saprissa.com/partidos/ma
+ sc-apertura2026-saprissa-liberia\nLive score: https://www.aiscore.com/team
+ -deportivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-saprissa-liberia
+END:VEVENT
+BEGIN:VEVENT
+UID:ae1bcb8ea5543f97@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:Alajuelense - Deportivo Saprissa
+DTSTART;TZID=America/Costa_Rica:20260905T200000
+DTEND;TZID=America/Costa_Rica:20260905T220000
+LOCATION:Morera Soto
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Morera Soto\nSta
+ tus: scheduled\nOfficial source: https://www.saprissa.com/partidos/masc-ap
+ ertura2026-lda-saprissa\nLive score: https://www.aiscore.com/team-deportiv
+ o-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-lda-saprissa
+END:VEVENT
+BEGIN:VEVENT
+UID:05af54cbae7995e0@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:Sporting - Deportivo Saprissa
+DTSTART;TZID=America/Costa_Rica:20260913T160000
+DTEND;TZID=America/Costa_Rica:20260913T180000
+LOCATION:Puente Piedra
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Puente Piedra\nS
+ tatus: scheduled\nOfficial source: https://www.saprissa.com/partidos/masc-
+ apertura2026-sporting-saprissa\nLive score: https://www.aiscore.com/team-d
+ eportivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-sporting-saprissa
+END:VEVENT
+BEGIN:VEVENT
+UID:a5ca771618400c88@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:Deportivo Saprissa - Herediano
+DTSTART;TZID=America/Costa_Rica:20260919T200000
+DTEND;TZID=America/Costa_Rica:20260919T220000
+LOCATION:Ricardo Saprissa
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Ricardo Saprissa
+ \nStatus: scheduled\nOfficial source: https://www.saprissa.com/partidos/ma
+ sc-apertura2026-saprissa-csh\nLive score: https://www.aiscore.com/team-dep
+ ortivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-saprissa-csh
+END:VEVENT
+BEGIN:VEVENT
+UID:975254d7fd913da6@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:Escorpiones - Deportivo Saprissa
+DTSTART;TZID=America/Costa_Rica:20261011T160000
+DTEND;TZID=America/Costa_Rica:20261011T180000
+LOCATION:Edgardo Baltodano
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Edgardo Baltodan
+ o\nStatus: scheduled\nOfficial source: https://www.saprissa.com/partidos/m
+ asc-apertura2026-lib-saprissa\nLive score: https://www.aiscore.com/team-de
+ portivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-lib-saprissa
+END:VEVENT
+BEGIN:VEVENT
+UID:b952be01f78552b9@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:Deportivo Saprissa - Sporting
+DTSTART;TZID=America/Costa_Rica:20261015T200000
+DTEND;TZID=America/Costa_Rica:20261015T220000
+LOCATION:Ricardo Saprissa
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Ricardo Saprissa
+ \nStatus: scheduled\nOfficial source: https://www.saprissa.com/partidos/ma
+ sc-apertura2026-saprissa-sporting\nLive score: https://www.aiscore.com/tea
+ m-deportivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-saprissa-sporting
+END:VEVENT
+BEGIN:VEVENT
+UID:dfd8d59db92800ed@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:Cartaginés - Deportivo Saprissa
+DTSTART;TZID=America/Costa_Rica:20261018T160000
+DTEND;TZID=America/Costa_Rica:20261018T180000
+LOCATION:Fello Meza
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Fello Meza\nStat
+ us: scheduled\nOfficial source: https://www.saprissa.com/partidos/masc-ape
+ rtura2026-csc-saprissa\nLive score: https://www.aiscore.com/team-deportivo
+ -saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-csc-saprissa
+END:VEVENT
+BEGIN:VEVENT
+UID:f433a8f2837aeb7a@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:San Carlos - Deportivo Saprissa
+DTSTART;TZID=America/Costa_Rica:20261025T160000
+DTEND;TZID=America/Costa_Rica:20261025T180000
+LOCATION:Carlos Ugalde
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Carlos Ugalde\nS
+ tatus: scheduled\nOfficial source: https://www.saprissa.com/partidos/masc-
+ apertura2026-sancarlos-saprissa\nLive score: https://www.aiscore.com/team-
+ deportivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-sancarlos-saprissa
+END:VEVENT
+BEGIN:VEVENT
+UID:e85c30260ea8b826@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:Deportivo Saprissa - Alajuelense
+DTSTART;TZID=America/Costa_Rica:20261031T200000
+DTEND;TZID=America/Costa_Rica:20261031T220000
+LOCATION:Ricardo Saprissa
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Ricardo Saprissa
+ \nStatus: scheduled\nOfficial source: https://www.saprissa.com/partidos/ma
+ sc-apertura2026-saprissa-lda\nLive score: https://www.aiscore.com/team-dep
+ ortivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-saprissa-lda
+END:VEVENT
+BEGIN:VEVENT
+UID:3981401b3a5db4c5@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:Herediano - Deportivo Saprissa
+DTSTART;TZID=America/Costa_Rica:20261104T200000
+DTEND;TZID=America/Costa_Rica:20261104T220000
+LOCATION:Carlos Alvarado
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Carlos Alvarado\
+ nStatus: scheduled\nOfficial source: https://www.saprissa.com/partidos/mas
+ c-apertura2026-csh-saprissa\nLive score: https://www.aiscore.com/team-depo
+ rtivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-csh-saprissa
+END:VEVENT
+BEGIN:VEVENT
+UID:b8949366e353e356@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:Deportivo Saprissa - Puntarenas
+DTSTART;TZID=America/Costa_Rica:20261108T160000
+DTEND;TZID=America/Costa_Rica:20261108T180000
+LOCATION:Ricardo Saprissa
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Ricardo Saprissa
+ \nStatus: scheduled\nOfficial source: https://www.saprissa.com/partidos/ma
+ sc-apertura2026-saprissa-pfc\nLive score: https://www.aiscore.com/team-dep
+ ortivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-saprissa-pfc
+END:VEVENT
+BEGIN:VEVENT
+UID:bb95e3bfb0ff33b8@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:Pérez Zeledón - Deportivo Saprissa
+DTSTART;TZID=America/Costa_Rica:20261122T160000
+DTEND;TZID=America/Costa_Rica:20261122T180000
+LOCATION:Municipal de Pérez Zeledón
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Municipal de Pé
+ rez Zeledón\nStatus: scheduled\nOfficial source: https://www.saprissa.com
+ /partidos/masc-apertura2026-pz-saprissa\nLive score: https://www.aiscore.c
+ om/team-deportivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-pz-saprissa
+END:VEVENT
+BEGIN:VEVENT
+UID:7e707e400a0c5dc9@saprissa-calendar.ec5987
+DTSTAMP:20260830T060525Z
+SUMMARY:Deportivo Saprissa - Inter San Carlos
+DTSTART;TZID=America/Costa_Rica:20261129T150000
+DTEND;TZID=America/Costa_Rica:20261129T170000
+LOCATION:Ricardo Saprissa
+DESCRIPTION:Primera División - Torneo de Apertura\nVenue: Ricardo Saprissa
+ \nStatus: scheduled\nOfficial source: https://www.saprissa.com/partidos/ma
+ sc-apertura2026-saprissa-inter\nLive score: https://www.aiscore.com/team-d
+ eportivo-saprissa/o17pji0p20i27jw
+URL:https://www.saprissa.com/partidos/masc-apertura2026-saprissa-inter
+END:VEVENT
+END:VCALENDAR

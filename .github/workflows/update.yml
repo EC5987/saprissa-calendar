@@ -1,0 +1,64 @@
+name: Update Saprissa calendar
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Update match data and calendar
+        run: python scripts/update.py
+
+      - name: Check for generated changes
+        id: changes
+        run: |
+          if git diff --quiet -- data/matches.json public/saprissa.ics; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit generated updates
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/matches.json public/saprissa.ics
+          git commit -m "Update Saprissa calendar"
+          git push
+
+      - name: Configure Pages
+        if: github.event_name == 'workflow_dispatch' || steps.changes.outputs.changed == 'true'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: github.event_name == 'workflow_dispatch' || steps.changes.outputs.changed == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'workflow_dispatch' || steps.changes.outputs.changed == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v4

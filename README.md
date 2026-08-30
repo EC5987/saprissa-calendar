@@ -19,6 +19,7 @@ https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
 ```text
 data/matches.json        Stored match data
 public/saprissa.ics      Public calendar feed
+public/index.html        Small GitHub Pages entry page
 scripts/update.py        Scraper, optional score enrichment, and ICS generator
 .github/workflows/update.yml
 ```

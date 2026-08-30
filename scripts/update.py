@@ -674,11 +674,12 @@ def write_ics(path: Path, matches: Iterable[Match]) -> None:
         description_lines = [
             match.competition,
             f"Estado: {spanish_status(match.status)}",
-            f"Saprissa: {match.source_url}",
-            f"AiScore: {match.live_score_url}",
+            "Minuto a minuto:",
+            match.source_url,
+            match.live_score_url,
         ]
         if match.venue:
-            description_lines.insert(1, f"Estadio: {match.venue}")
+            description_lines.insert(1, f"Estadio {match.venue}")
 
         lines.append("BEGIN:VEVENT")
         add_ics_line(lines, f"UID:{match.id}@saprissa-calendar.ec5987")

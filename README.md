@@ -111,6 +111,6 @@ The workflow also commits changes to `data/matches.json` and `public/saprissa.ic
 
 The workflow runs hourly and can also be started manually from the GitHub Actions tab.
 
-There is also a 15-minute scheduled check. That run exits early unless stored match data says a match is within 30 minutes before kickoff through 6 hours after kickoff. During that window, the updater can use AiScore as a fallback if Saprissa has not published the score yet. The wider window gives delayed matches more room to update without scraping frequently on normal non-match days.
+There is also a 5-minute scheduled check. That run exits early unless stored match data says a match is within 30 minutes before kickoff through 6 hours after kickoff. During that window, the updater can use AiScore as a fallback if Saprissa has not published the score yet. The wider window gives delayed matches more room to update without scraping frequently on normal non-match days.
 
 Scheduled runs only deploy GitHub Pages when the generated match data or calendar feed changes. Manual runs always deploy Pages, which is useful for the first publish after enabling GitHub Pages.

@@ -217,6 +217,10 @@ def clean_text(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
+def strip_tags(value: str) -> str:
+    return clean_text(re.sub(r"<[^>]+>", " ", value))
+
+
 def fetch(url: str) -> str:
     request = Request(
         url,
@@ -465,6 +469,10 @@ def parse_official_results(page_html: str) -> list[Match]:
 
 
 def parse_aiscore_scores(page_html: str) -> list[dict]:
+    structured_scores = parse_aiscore_structured_scores(page_html)
+    if structured_scores:
+        return structured_scores
+
     parser = LinkTextParser()
     parser.feed(page_html)
     text = clean_text(" ".join(parser.text_parts))
@@ -486,6 +494,8 @@ def parse_aiscore_scores(page_html: str) -> list[dict]:
             {
                 "day": int(match.group("day")),
                 "month": parse_month(match.group("month")),
+                "start_at": None,
+                "match_url": AISCORE_URL,
                 "competition": clean_text(match.group(4)),
                 "home_team": clean_text(match.group("home")),
                 "away_team": clean_text(match.group("away")),
@@ -496,16 +506,99 @@ def parse_aiscore_scores(page_html: str) -> list[dict]:
     return scores
 
 
+def parse_aiscore_structured_scores(page_html: str) -> list[dict]:
+    row_start_pattern = r'<div itemscope="itemscope" itemtype="http://schema.org/SportsEvent"'
+    starts = [match.start() for match in re.finditer(row_start_pattern, page_html)]
+    scores: list[dict] = []
+
+    for index, start in enumerate(starts):
+        end = starts[index + 1] if index + 1 < len(starts) else len(page_html)
+        row_html = page_html[start:end]
+        metadata = {
+            match.group("prop"): html.unescape(match.group("content"))
+            for match in re.finditer(
+                r'<meta[^>]+itemprop="(?P<prop>name|url|startDate|location|Organization)"[^>]+content="(?P<content>[^"]*)"',
+                row_html,
+            )
+        }
+
+        home_match = re.search(r'<span[^>]+itemprop="homeTeam"[^>]*>(?P<team>.*?)</span>', row_html, re.DOTALL)
+        away_match = re.search(r'<span[^>]+itemprop="awayTeam"[^>]*>(?P<team>.*?)</span>', row_html, re.DOTALL)
+        score_match = re.search(
+            r'<a[^>]+itemprop="url"[^>]*href="(?P<href>[^"]+)"[^>]*>(?P<score>.*?)</a>',
+            row_html,
+            re.DOTALL,
+        )
+
+        if not home_match or not away_match or not score_match:
+            continue
+
+        score_text = strip_tags(score_match.group("score"))
+        score_parts = re.fullmatch(r"(?P<home>\d+)\s*-\s*(?P<away>\d+)", score_text)
+        if not score_parts:
+            continue
+
+        start_at = metadata.get("startDate")
+        try:
+            start_date = datetime.fromisoformat(start_at).date() if start_at else None
+        except ValueError:
+            start_date = None
+
+        match_url = metadata.get("url") or score_match.group("href") or AISCORE_URL
+        if match_url.startswith("/"):
+            match_url = f"https://www.aiscore.com{match_url}"
+
+        scores.append(
+            {
+                "day": start_date.day if start_date else None,
+                "month": start_date.month if start_date else None,
+                "start_at": start_at,
+                "match_url": match_url,
+                "competition": clean_text(metadata.get("Organization") or ""),
+                "home_team": strip_tags(home_match.group("team")),
+                "away_team": strip_tags(away_match.group("team")),
+                "home_score": int(score_parts.group("home")),
+                "away_score": int(score_parts.group("away")),
+            }
+        )
+
+    return scores
+
+
+def match_start_datetime(match: Match) -> datetime | None:
+    if not match.time:
+        return None
+
+    match_date = date.fromisoformat(match.date)
+    match_time = time.fromisoformat(match.time)
+    return datetime.combine(match_date, match_time, tzinfo=timezone(timedelta(hours=-6)))
+
+
+def score_is_near_match(match: Match, score: dict) -> bool:
+    if score.get("start_at"):
+        try:
+            score_start = datetime.fromisoformat(str(score["start_at"])).astimezone(timezone(timedelta(hours=-6)))
+        except ValueError:
+            score_start = None
+        match_start = match_start_datetime(match)
+        if score_start and match_start:
+            return abs((score_start - match_start).total_seconds()) <= 12 * 60 * 60
+
+    match_date = date.fromisoformat(match.date)
+    return score.get("month") == match_date.month and score.get("day") == match_date.day
+
+
 def enrich_scores(matches: list[Match], scores: list[dict]) -> None:
     for match in matches:
-        match_date = date.fromisoformat(match.date)
         for score in scores:
-            if score["month"] != match_date.month or score["day"] != match_date.day:
+            if not score_is_near_match(match, score):
                 continue
             if teams_match(match.home_team, score["home_team"]) and teams_match(match.away_team, score["away_team"]):
                 match.status = "final" if likely_finished(match) else "in_progress"
                 match.home_score = score["home_score"]
                 match.away_score = score["away_score"]
+                if score.get("match_url"):
+                    match.live_score_url = str(score["match_url"])
                 break
 
 

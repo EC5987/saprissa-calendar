@@ -118,7 +118,7 @@ DTSTAMP:20260830T060525Z
 SUMMARY:Deportivo Saprissa - Escorpiones (2-1)
 DTSTART;TZID=America/Costa_Rica:20260830T180000
 DTEND;TZID=America/Costa_Rica:20260830T200000
-LOCATION:Estadio Ricardo Saprissa
+LOCATION:Estadio de Belén Ricardo Saprissa
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
  uto a minuto:\nhttps://www.aiscore.com/match-deportivo-saprissa-escorpione
  s-belen/g6763i5or2gso7r
@@ -135,15 +135,35 @@ DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
  27jw
 END:VEVENT
 BEGIN:VEVENT
+UID:af23efbb8764d034@saprissa-calendar.ec5987
+DTSTAMP:20260831T200911Z
+SUMMARY:Deportivo Saprissa - Cartaginés
+DTSTART;TZID=America/Costa_Rica:20260909T190000
+DTEND;TZID=America/Costa_Rica:20260909T210000
+LOCATION:Estadio Ricardo Saprissa
+DESCRIPTION:Primera División - Liga Concacaf\nEstado: programado\nMinuto a
+  minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+END:VEVENT
+BEGIN:VEVENT
 UID:05af54cbae7995e0@saprissa-calendar.ec5987
 DTSTAMP:20260830T060525Z
 SUMMARY:Sporting - Deportivo Saprissa
-DTSTART;TZID=America/Costa_Rica:20260913T160000
-DTEND;TZID=America/Costa_Rica:20260913T180000
+DTSTART;TZID=America/Costa_Rica:20260913T180000
+DTEND;TZID=America/Costa_Rica:20260913T200000
 LOCATION:Estadio Puente Piedra
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
  uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
  27jw
+END:VEVENT
+BEGIN:VEVENT
+UID:4ce10c67c19d3e85@saprissa-calendar.ec5987
+DTSTAMP:20260831T200911Z
+SUMMARY:Cartaginés - Deportivo Saprissa
+DTSTART;TZID=America/Costa_Rica:20260916T183000
+DTEND;TZID=America/Costa_Rica:20260916T203000
+LOCATION:Estadio Fello Meza
+DESCRIPTION:Primera División - Liga Concacaf\nEstado: programado\nMinuto a
+  minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:a5ca771618400c88@saprissa-calendar.ec5987

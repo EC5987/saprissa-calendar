@@ -23,6 +23,7 @@ TEAM_NAME = "Deportivo Saprissa"
 TIMEZONE_ID = "America/Costa_Rica"
 SEASON_START = date(2026, 7, 1)
 CALENDAR_NAME = "Saprissa - Calendario"
+FINAL_SCORE_FALLBACK_AFTER = timedelta(hours=4)
 
 MONTHS = {
     "jan": 1,
@@ -548,6 +549,11 @@ def parse_aiscore_direct_score(page_html: str, match_url: str) -> dict | None:
         page_html,
         re.DOTALL,
     )
+    status_match = re.search(
+        r'<div[^>]+class="[^"]*\bsmallStatus\b[^"]*"[^>]*>(?P<status>.*?)</div>',
+        page_html,
+        re.DOTALL,
+    )
 
     if not home_team or not away_team or not home_score_match or not away_score_match:
         return None
@@ -562,7 +568,13 @@ def parse_aiscore_direct_score(page_html: str, match_url: str) -> dict | None:
         "away_team": away_team,
         "home_score": int(home_score_match.group("score")),
         "away_score": int(away_score_match.group("score")),
+        "status_text": strip_tags(status_match.group("status")) if status_match else "",
     }
+
+
+def is_aiscore_final_status(value: str) -> bool:
+    normalized = clean_text(value).upper()
+    return normalized in {"FT", "AET", "AP", "PEN"}
 
 
 def parse_aiscore_structured_scores(page_html: str) -> list[dict]:
@@ -647,13 +659,18 @@ def score_is_near_match(match: Match, score: dict) -> bool:
     return score.get("month") == match_date.month and score.get("day") == match_date.day
 
 
-def enrich_scores(matches: list[Match], scores: list[dict]) -> None:
+def enrich_scores(matches: list[Match], scores: list[dict], skip_match_ids: set[str] | None = None) -> None:
+    skip_match_ids = skip_match_ids or set()
     for match in matches:
+        if match.id in skip_match_ids:
+            continue
+        if not likely_finished(match):
+            continue
         for score in scores:
             if not score_is_near_match(match, score):
                 continue
             if teams_match(match.home_team, score["home_team"]) and teams_match(match.away_team, score["away_team"]):
-                match.status = "final" if likely_finished(match) else "in_progress"
+                match.status = "final"
                 match.home_score = score["home_score"]
                 match.away_score = score["away_score"]
                 if score.get("match_url"):
@@ -661,12 +678,15 @@ def enrich_scores(matches: list[Match], scores: list[dict]) -> None:
                 break
 
 
-def enrich_direct_aiscore_scores(matches: list[Match]) -> None:
+def enrich_direct_aiscore_scores(matches: list[Match]) -> set[str]:
+    nonfinal_match_ids: set[str] = set()
     for match in matches:
+        if match.status == "final" and match.home_score is not None and match.away_score is not None:
+            continue
         match_url = normalize_aiscore_match_url(match.live_score_url)
         if not match_url or match_url == AISCORE_URL or "/match-" not in match_url:
             continue
-        if not is_match_window_now(match) and not (match.status == "in_progress" and not likely_finished(match)):
+        if not match_has_started(match):
             continue
 
         try:
@@ -684,15 +704,23 @@ def enrich_direct_aiscore_scores(matches: list[Match]) -> None:
                 f"{score['home_team']} - {score['away_team']} for {match.home_team} - {match.away_team}."
             )
             continue
+        if not is_aiscore_final_status(str(score.get("status_text") or "")):
+            nonfinal_match_ids.add(match.id)
+            print(
+                "AiScore direct match is not final yet; ignoring live score "
+                f"{match.home_team} - {match.away_team}: {score['home_score']}-{score['away_score']}."
+            )
+            continue
 
-        match.status = "final" if likely_finished(match) else "in_progress"
+        match.status = "final"
         match.home_score = score["home_score"]
         match.away_score = score["away_score"]
         match.live_score_url = match_url
         print(
-            "AiScore direct match updated "
+            "AiScore direct match final updated "
             f"{match.home_team} - {match.away_team}: {match.home_score}-{match.away_score}."
         )
+    return nonfinal_match_ids
 
 
 def preserve_existing_metadata(matches: list[Match], existing: list[dict]) -> None:
@@ -707,10 +735,6 @@ def preserve_existing_metadata(matches: list[Match], existing: list[dict]) -> No
             match.live_score_url = str(old["live_score_url"])
         if old.get("status") == "final":
             match.status = "final"
-            match.home_score = old.get("home_score")
-            match.away_score = old.get("away_score")
-        elif old.get("status") == "in_progress" and not likely_finished(match):
-            match.status = "in_progress"
             match.home_score = old.get("home_score")
             match.away_score = old.get("away_score")
 
@@ -769,42 +793,25 @@ def likely_finished(match: Match) -> bool:
 
     match_time = time.fromisoformat(match.time)
     start = datetime.combine(match_date, match_time, tzinfo=timezone(timedelta(hours=-6)))
-    return now >= start + timedelta(hours=6)
+    return now >= start + FINAL_SCORE_FALLBACK_AFTER
 
 
 def needs_aiscore_enrichment(matches: list[Match]) -> bool:
     for match in matches:
-        if not match_has_started(match):
+        if not likely_finished(match):
             continue
         if match.status != "final" or match.home_score is None or match.away_score is None:
             return True
     return False
 
 
-def is_match_window_now(match: Match) -> bool:
-    match_date = date.fromisoformat(match.date)
-    now = datetime.now(timezone(timedelta(hours=-6)))
-
-    if not match.time:
-        return match_date == now.date()
-
-    match_time = time.fromisoformat(match.time)
-    start = datetime.combine(match_date, match_time, tzinfo=timezone(timedelta(hours=-6)))
-    return start - timedelta(minutes=30) <= now <= start + timedelta(hours=6)
-
-
-def should_run_match_window_update(existing: list[dict]) -> bool:
-    if not existing:
-        return True
-
-    for item in existing:
-        try:
-            match = Match.from_dict(item)
-        except (KeyError, TypeError, ValueError):
+def discard_live_score_state(matches: list[Match]) -> None:
+    for match in matches:
+        if match.status != "in_progress":
             continue
-        if is_match_window_now(match):
-            return True
-    return False
+        match.status = "scheduled"
+        match.home_score = None
+        match.away_score = None
 
 
 def load_existing(path: Path) -> list[dict]:
@@ -905,7 +912,7 @@ def write_ics(path: Path, matches: Iterable[Match]) -> None:
 
     for match in matches:
         summary = f"{match.home_team} - {match.away_team}"
-        if match.status in {"final", "in_progress"} and match.home_score is not None and match.away_score is not None:
+        if match.status == "final" and match.home_score is not None and match.away_score is not None:
             summary += f" ({match.home_score}-{match.away_score})"
 
         description_lines = [
@@ -947,10 +954,6 @@ def run(args: argparse.Namespace) -> int:
     ics_file = Path(args.ics_file)
     existing = load_existing(data_file)
 
-    if args.match_window_only and not should_run_match_window_update(existing):
-        print("No known match is currently near its live window. Skipping update.")
-        return 0
-
     fixture_matches: list[Match] = []
     result_matches: list[Match] = []
     fixture_source_ok = False
@@ -980,15 +983,17 @@ def run(args: argparse.Namespace) -> int:
         existing,
         prune_stale_future=fixture_source_ok,
     )
+    discard_live_score_state(matches)
 
-    if not args.no_aiscore and needs_aiscore_enrichment(matches):
-        try:
-            scores = parse_aiscore_scores(fetch(AISCORE_URL))
-            print(f"AiScore team page returned {len(scores)} score rows.")
-            enrich_scores(matches, scores)
-        except (URLError, TimeoutError, ValueError) as error:
-            print(f"AiScore enrichment skipped: {error}", file=sys.stderr)
-        enrich_direct_aiscore_scores(matches)
+    if not args.no_aiscore:
+        nonfinal_direct_matches = enrich_direct_aiscore_scores(matches)
+        if needs_aiscore_enrichment(matches):
+            try:
+                scores = parse_aiscore_scores(fetch(AISCORE_URL))
+                print(f"AiScore team page returned {len(scores)} score rows.")
+                enrich_scores(matches, scores, nonfinal_direct_matches)
+            except (URLError, TimeoutError, ValueError) as error:
+                print(f"AiScore enrichment skipped: {error}", file=sys.stderr)
 
     write_json(data_file, matches)
     write_ics(ics_file, matches)
@@ -1001,11 +1006,6 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--data-file", default="data/matches.json")
     parser.add_argument("--ics-file", default="public/saprissa.ics")
     parser.add_argument("--no-aiscore", action="store_true", help="Skip best-effort AiScore score enrichment.")
-    parser.add_argument(
-        "--match-window-only",
-        action="store_true",
-        help="Skip quickly unless stored match data shows a match is near kickoff or currently live.",
-    )
     return parser
 
 

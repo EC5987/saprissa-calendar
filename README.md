@@ -10,7 +10,7 @@ Official completed results are read from:
 
 https://www.saprissa.com/resultados
 
-If a match has already started and Saprissa's pages do not have a score yet, missing scores are enriched on a best-effort basis from:
+If a completed match is missing a score from Saprissa's pages, final scores are enriched on a best-effort basis from:
 
 https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
 
@@ -60,7 +60,8 @@ python3 scripts/update.py --data-file /tmp/matches.json --ics-file /tmp/saprissa
 - Completed matches include the score when available, like `Home Team - Away Team (2-1)`.
 - Future fixtures come from the official Saprissa calendar.
 - Completed men's matches from July 1, 2026 onward come from Saprissa's official results page.
-- AiScore is only used as a fallback when Saprissa is missing a score for a match that has already started.
+- AiScore is only used as a fallback for completed matches when Saprissa is missing a final score.
+- Live, in-progress score changes are intentionally not published to the calendar.
 - Past matches already stored in `data/matches.json` are preserved so scores can still be added after they leave the official schedule page.
 
 ## Apple Calendar Subscription
@@ -111,6 +112,6 @@ The workflow also commits changes to `data/matches.json` and `public/saprissa.ic
 
 The workflow runs hourly and can also be started manually from the GitHub Actions tab.
 
-There is also a 5-minute scheduled check. That run exits early unless stored match data says a match is within 30 minutes before kickoff through 6 hours after kickoff. During that window, the updater can use AiScore as a fallback if Saprissa has not published the score yet. The wider window gives delayed matches more room to update without scraping frequently on normal non-match days.
+The calendar does not publish live score changes during a match. Final-score fallback checks wait several hours after kickoff before using AiScore, which keeps the feed useful without turning it into a live match tracker.
 
 Scheduled runs only deploy GitHub Pages when the generated match data or calendar feed changes. Manual runs always deploy Pages, which is useful for the first publish after enabling GitHub Pages.

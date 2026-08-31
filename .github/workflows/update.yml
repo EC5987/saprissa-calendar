@@ -10,7 +10,6 @@ on:
       - scripts/**
       - .github/workflows/update.yml
   schedule:
-    - cron: "*/5 * * * *"
     - cron: "17 * * * *"
 
 permissions:
@@ -36,12 +35,7 @@ jobs:
           python-version: "3.x"
 
       - name: Update match data and calendar
-        run: |
-          if [ "${{ github.event.schedule }}" = "*/5 * * * *" ]; then
-            python scripts/update.py --match-window-only
-          else
-            python scripts/update.py
-          fi
+        run: python scripts/update.py
 
       - name: Check for generated changes
         id: changes

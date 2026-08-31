@@ -23,8 +23,7 @@ DTSTART;TZID=America/Costa_Rica:20260717T200000
 DTEND;TZID=America/Costa_Rica:20260717T220000
 LOCATION:Estadio Fello Meza
 DESCRIPTION:Primera División - Re Copa\nEstado: finalizado\nMinuto a minut
- o:\nhttps://www.saprissa.com/partidos/recopa-2026-sap-her-fello\nhttps://w
- ww.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ o:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:cd63f43ffc6ebe88@saprissa-calendar.ec5987
@@ -34,8 +33,8 @@ DTSTART;TZID=America/Costa_Rica:20260724T200000
 DTEND;TZID=America/Costa_Rica:20260724T220000
 LOCATION:Estadio Ricardo Saprissa
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-sapriss
- a-pz\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:9e951d7fdbfde0f8@saprissa-calendar.ec5987
@@ -45,8 +44,7 @@ DTSTART;TZID=America/Costa_Rica:20260729T190000
 DTEND;TZID=America/Costa_Rica:20260729T210000
 LOCATION:Estadio Panamá
 DESCRIPTION:Primera División - Liga Concacaf\nEstado: finalizado\nMinuto a
-  minuto:\nhttps://www.saprissa.com/partidos/centroamericana-umecit-sapriss
- a\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+  minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:ef6dbd4aac5598ad@saprissa-calendar.ec5987
@@ -56,9 +54,8 @@ DTSTART;TZID=America/Costa_Rica:20260802T160000
 DTEND;TZID=America/Costa_Rica:20260802T180000
 LOCATION:Estadio Ricardo Saprissa
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-sapriss
- a-sancarlos\nhttps://www.aiscore.com/match-deportivo-saprissa-ad-san-carlo
- s/zrkn6i4genniwql
+ uto a minuto:\nhttps://www.aiscore.com/match-deportivo-saprissa-ad-san-car
+ los/zrkn6i4genniwql
 END:VEVENT
 BEGIN:VEVENT
 UID:0842953904cd9ebb@saprissa-calendar.ec5987
@@ -68,9 +65,8 @@ DTSTART;TZID=America/Costa_Rica:20260808T200000
 DTEND;TZID=America/Costa_Rica:20260808T220000
 LOCATION:Estadio Lito Pérez
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-pfc-sap
- rissa\nhttps://www.aiscore.com/match-puntarenas-fc-deportivo-saprissa/ndkz
- 6i3yjojixq3
+ uto a minuto:\nhttps://www.aiscore.com/match-puntarenas-fc-deportivo-sapri
+ ssa/ndkz6i3yjojixq3
 END:VEVENT
 BEGIN:VEVENT
 UID:eb82fd6f73526932@saprissa-calendar.ec5987
@@ -80,9 +76,8 @@ DTSTART;TZID=America/Costa_Rica:20260811T200000
 DTEND;TZID=America/Costa_Rica:20260811T220000
 LOCATION:Estadio Ricardo Saprissa
 DESCRIPTION:Primera División - Liga Concacaf\nEstado: finalizado\nMinuto a
-  minuto:\nhttps://www.saprissa.com/partidos/centroamericana-saprissa-mixco
- \nhttps://www.aiscore.com/match-deportivo-saprissa-deportivo-mixco/wv78xiv
- zx6rhokr
+  minuto:\nhttps://www.aiscore.com/match-deportivo-saprissa-deportivo-mixco
+ /wv78xivzx6rhokr
 END:VEVENT
 BEGIN:VEVENT
 UID:3abc0cf7ea57d903@saprissa-calendar.ec5987
@@ -92,9 +87,8 @@ DTSTART;TZID=America/Costa_Rica:20260815T200000
 DTEND;TZID=America/Costa_Rica:20260815T220000
 LOCATION:Estadio Ricardo Saprissa
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-sapriss
- a-csc\nhttps://www.aiscore.com/match-deportivo-saprissa-cs-cartagines/edq0
- 9il1o0lteqx
+ uto a minuto:\nhttps://www.aiscore.com/match-deportivo-saprissa-cs-cartagi
+ nes/edq09il1o0lteqx
 END:VEVENT
 BEGIN:VEVENT
 UID:89da125e03b0a612@saprissa-calendar.ec5987
@@ -104,8 +98,8 @@ DTSTART;TZID=America/Costa_Rica:20260823T150000
 DTEND;TZID=America/Costa_Rica:20260823T170000
 LOCATION:Estadio Inter San Carlos
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-inter-s
- aprissa\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:0e349ab6e575a048@saprissa-calendar.ec5987
@@ -115,9 +109,8 @@ DTSTART;TZID=America/Costa_Rica:20260827T203000
 DTEND;TZID=America/Costa_Rica:20260827T223000
 LOCATION:Estadio Chelato Uclés
 DESCRIPTION:Primera División - Liga Concacaf\nEstado: finalizado\nMinuto a
-  minuto:\nhttps://www.saprissa.com/partidos/centroamericana-olimpia-sapris
- sa\nhttps://www.aiscore.com/match-cd-olimpia-deportivo-saprissa/69759igen5
- mhgk2
+  minuto:\nhttps://www.aiscore.com/match-cd-olimpia-deportivo-saprissa/6975
+ 9igen5mhgk2
 END:VEVENT
 BEGIN:VEVENT
 UID:1c17c66fbd069a33@saprissa-calendar.ec5987
@@ -127,9 +120,8 @@ DTSTART;TZID=America/Costa_Rica:20260830T180000
 DTEND;TZID=America/Costa_Rica:20260830T200000
 LOCATION:Estadio Ricardo Saprissa
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: en vivo\nMinuto
-  a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-saprissa-l
- iberia\nhttps://www.aiscore.com/match-deportivo-saprissa-escorpiones-belen
- /g6763i5or2gso7r
+  a minuto:\nhttps://www.aiscore.com/match-deportivo-saprissa-escorpiones-b
+ elen/g6763i5or2gso7r
 END:VEVENT
 BEGIN:VEVENT
 UID:ae1bcb8ea5543f97@saprissa-calendar.ec5987
@@ -139,8 +131,8 @@ DTSTART;TZID=America/Costa_Rica:20260905T200000
 DTEND;TZID=America/Costa_Rica:20260905T220000
 LOCATION:Estadio Morera Soto
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-lda-sap
- rissa\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:05af54cbae7995e0@saprissa-calendar.ec5987
@@ -150,9 +142,8 @@ DTSTART;TZID=America/Costa_Rica:20260913T160000
 DTEND;TZID=America/Costa_Rica:20260913T180000
 LOCATION:Estadio Puente Piedra
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-sportin
- g-saprissa\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27j
- w
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:a5ca771618400c88@saprissa-calendar.ec5987
@@ -162,8 +153,8 @@ DTSTART;TZID=America/Costa_Rica:20260919T200000
 DTEND;TZID=America/Costa_Rica:20260919T220000
 LOCATION:Estadio Ricardo Saprissa
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-sapriss
- a-csh\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:975254d7fd913da6@saprissa-calendar.ec5987
@@ -173,8 +164,8 @@ DTSTART;TZID=America/Costa_Rica:20261011T160000
 DTEND;TZID=America/Costa_Rica:20261011T180000
 LOCATION:Estadio Edgardo Baltodano
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-lib-sap
- rissa\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:b952be01f78552b9@saprissa-calendar.ec5987
@@ -184,9 +175,8 @@ DTSTART;TZID=America/Costa_Rica:20261015T200000
 DTEND;TZID=America/Costa_Rica:20261015T220000
 LOCATION:Estadio Ricardo Saprissa
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-sapriss
- a-sporting\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27j
- w
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:dfd8d59db92800ed@saprissa-calendar.ec5987
@@ -196,8 +186,8 @@ DTSTART;TZID=America/Costa_Rica:20261018T160000
 DTEND;TZID=America/Costa_Rica:20261018T180000
 LOCATION:Estadio Fello Meza
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-csc-sap
- rissa\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:f433a8f2837aeb7a@saprissa-calendar.ec5987
@@ -207,9 +197,8 @@ DTSTART;TZID=America/Costa_Rica:20261025T160000
 DTEND;TZID=America/Costa_Rica:20261025T180000
 LOCATION:Estadio Carlos Ugalde
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-sancarl
- os-saprissa\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27
- jw
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:e85c30260ea8b826@saprissa-calendar.ec5987
@@ -219,8 +208,8 @@ DTSTART;TZID=America/Costa_Rica:20261031T200000
 DTEND;TZID=America/Costa_Rica:20261031T220000
 LOCATION:Estadio Ricardo Saprissa
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-sapriss
- a-lda\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:3981401b3a5db4c5@saprissa-calendar.ec5987
@@ -230,8 +219,8 @@ DTSTART;TZID=America/Costa_Rica:20261104T200000
 DTEND;TZID=America/Costa_Rica:20261104T220000
 LOCATION:Estadio Carlos Alvarado
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-csh-sap
- rissa\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:b8949366e353e356@saprissa-calendar.ec5987
@@ -241,8 +230,8 @@ DTSTART;TZID=America/Costa_Rica:20261108T160000
 DTEND;TZID=America/Costa_Rica:20261108T180000
 LOCATION:Estadio Ricardo Saprissa
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-sapriss
- a-pfc\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:bb95e3bfb0ff33b8@saprissa-calendar.ec5987
@@ -252,8 +241,8 @@ DTSTART;TZID=America/Costa_Rica:20261122T160000
 DTEND;TZID=America/Costa_Rica:20261122T180000
 LOCATION:Estadio Municipal de Pérez Zeledón
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-pz-sapr
- issa\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 BEGIN:VEVENT
 UID:7e707e400a0c5dc9@saprissa-calendar.ec5987
@@ -263,7 +252,7 @@ DTSTART;TZID=America/Costa_Rica:20261129T150000
 DTEND;TZID=America/Costa_Rica:20261129T170000
 LOCATION:Estadio Ricardo Saprissa
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.saprissa.com/partidos/masc-apertura2026-sapriss
- a-inter\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
+ 27jw
 END:VEVENT
 END:VCALENDAR

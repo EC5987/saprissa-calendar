@@ -813,7 +813,6 @@ def write_ics(path: Path, matches: Iterable[Match]) -> None:
             match.competition,
             f"Estado: {spanish_status(match.status)}",
             "Minuto a minuto:",
-            match.source_url,
             match.live_score_url,
         ]
 

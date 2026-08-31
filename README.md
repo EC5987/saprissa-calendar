@@ -65,7 +65,7 @@ python3 scripts/update.py --data-file /tmp/matches.json --ics-file /tmp/saprissa
 
 ## Apple Calendar Subscription
 
-Once GitHub Pages is enabled, the public feed URL should be:
+The public feed URL is:
 
 ```text
 https://ec5987.github.io/saprissa-calendar/saprissa.ics
@@ -85,9 +85,9 @@ On iPhone:
 3. Choose `Add Subscribed Calendar`.
 4. Paste the `.ics` URL.
 
-## Sharing Later
+## Sharing
 
-After the repository is pushed to GitHub and Pages is enabled, share this URL:
+Share this URL:
 
 ```text
 https://ec5987.github.io/saprissa-calendar/saprissa.ics

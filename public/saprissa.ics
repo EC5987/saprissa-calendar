@@ -115,11 +115,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:1c17c66fbd069a33@saprissa-calendar.ec5987
 DTSTAMP:20260830T060525Z
-SUMMARY:Deportivo Saprissa - Escorpiones
+SUMMARY:Deportivo Saprissa - Escorpiones (2-1)
 DTSTART;TZID=America/Costa_Rica:20260830T180000
 DTEND;TZID=America/Costa_Rica:20260830T200000
 LOCATION:Estadio Ricardo Saprissa
-DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
+DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
  uto a minuto:\nhttps://www.aiscore.com/match-deportivo-saprissa-escorpione
  s-belen/g6763i5or2gso7r
 END:VEVENT

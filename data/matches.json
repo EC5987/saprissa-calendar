@@ -162,9 +162,9 @@
     "home_team": "Deportivo Saprissa",
     "away_team": "Escorpiones",
     "venue": "Ricardo Saprissa",
-    "status": "scheduled",
-    "home_score": null,
-    "away_score": null,
+    "status": "final",
+    "home_score": 2,
+    "away_score": 1,
     "source_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-liberia",
     "live_score_url": "https://www.aiscore.com/match-deportivo-saprissa-escorpiones-belen/g6763i5or2gso7r",
     "last_seen_at": "2026-08-30T06:05:25.416086+00:00"

@@ -554,9 +554,31 @@ def parse_aiscore_direct_score(page_html: str, match_url: str) -> dict | None:
         page_html,
         re.DOTALL,
     )
+    timeline_status_match = re.search(
+        r'<div[^>]+class="[^"]*\btime-status-list-title\b[^"]*"[^>]*>.*?'
+        r'<span[^>]+class="[^"]*\btext\b[^"]*"[^>]*>(?P<status>.*?)</span>',
+        page_html,
+        re.DOTALL,
+    )
 
     if not home_team or not away_team or not home_score_match or not away_score_match:
         return None
+
+    status_text = strip_tags(status_match.group("status")) if status_match else ""
+    home_score = int(home_score_match.group("score"))
+    away_score = int(away_score_match.group("score"))
+
+    if timeline_status_match:
+        timeline_status = strip_tags(timeline_status_match.group("status"))
+        final_score_match = re.fullmatch(
+            r"(?P<status>FT|AET|AP|PEN)\s+(?P<home>\d+)\s*-\s*(?P<away>\d+)",
+            timeline_status,
+            re.IGNORECASE,
+        )
+        if final_score_match:
+            status_text = clean_text(final_score_match.group("status")).upper()
+            home_score = int(final_score_match.group("home"))
+            away_score = int(final_score_match.group("away"))
 
     return {
         "day": None,
@@ -566,9 +588,9 @@ def parse_aiscore_direct_score(page_html: str, match_url: str) -> dict | None:
         "competition": "",
         "home_team": home_team,
         "away_team": away_team,
-        "home_score": int(home_score_match.group("score")),
-        "away_score": int(away_score_match.group("score")),
-        "status_text": strip_tags(status_match.group("status")) if status_match else "",
+        "home_score": home_score,
+        "away_score": away_score,
+        "status_text": status_text,
     }
 
 

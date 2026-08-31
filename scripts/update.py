@@ -506,6 +506,65 @@ def parse_aiscore_scores(page_html: str) -> list[dict]:
     return scores
 
 
+def normalize_aiscore_match_url(value: str | None) -> str | None:
+    if not value:
+        return None
+    if value.startswith("/"):
+        return f"https://www.aiscore.com{value}"
+    return value
+
+
+def parse_aiscore_direct_team(page_html: str, itemprop: str) -> str | None:
+    team_match = re.search(
+        rf'<a[^>]+itemprop="{re.escape(itemprop)}"[^>]*>(?P<team>.*?)</a>',
+        page_html,
+        re.DOTALL,
+    )
+    if team_match:
+        return strip_tags(team_match.group("team"))
+
+    title_match = re.search(r"<title>(?P<title>.*?)</title>", page_html, re.DOTALL)
+    if not title_match:
+        return None
+
+    title = strip_tags(title_match.group("title"))
+    title_match = re.match(r"(?P<home>.+?)\s+vs\s+(?P<away>.+?)\s+live score", title, re.IGNORECASE)
+    if not title_match:
+        return None
+
+    return clean_text(title_match.group("home" if itemprop == "homeTeam" else "away"))
+
+
+def parse_aiscore_direct_score(page_html: str, match_url: str) -> dict | None:
+    home_team = parse_aiscore_direct_team(page_html, "homeTeam")
+    away_team = parse_aiscore_direct_team(page_html, "awayTeam")
+    home_score_match = re.search(
+        r'<div[^>]+class="[^"]*\bhome-score\b[^"]*"[^>]*>.*?<span[^>]*>\s*(?P<score>\d+)\s*</span>',
+        page_html,
+        re.DOTALL,
+    )
+    away_score_match = re.search(
+        r'<div[^>]+class="[^"]*\baway-score\b[^"]*"[^>]*>.*?<span[^>]*>\s*(?P<score>\d+)\s*</span>',
+        page_html,
+        re.DOTALL,
+    )
+
+    if not home_team or not away_team or not home_score_match or not away_score_match:
+        return None
+
+    return {
+        "day": None,
+        "month": None,
+        "start_at": None,
+        "match_url": match_url,
+        "competition": "",
+        "home_team": home_team,
+        "away_team": away_team,
+        "home_score": int(home_score_match.group("score")),
+        "away_score": int(away_score_match.group("score")),
+    }
+
+
 def parse_aiscore_structured_scores(page_html: str) -> list[dict]:
     row_start_pattern = r'<div itemscope="itemscope" itemtype="http://schema.org/SportsEvent"'
     starts = [match.start() for match in re.finditer(row_start_pattern, page_html)]
@@ -602,6 +661,40 @@ def enrich_scores(matches: list[Match], scores: list[dict]) -> None:
                 break
 
 
+def enrich_direct_aiscore_scores(matches: list[Match]) -> None:
+    for match in matches:
+        match_url = normalize_aiscore_match_url(match.live_score_url)
+        if not match_url or match_url == AISCORE_URL or "/match-" not in match_url:
+            continue
+        if not is_match_window_now(match) and not (match.status == "in_progress" and not likely_finished(match)):
+            continue
+
+        try:
+            score = parse_aiscore_direct_score(fetch(match_url), match_url)
+        except (URLError, TimeoutError, ValueError) as error:
+            print(f"AiScore direct match skipped for {match.home_team} - {match.away_team}: {error}", file=sys.stderr)
+            continue
+
+        if not score:
+            print(f"AiScore direct match had no parseable score for {match.home_team} - {match.away_team}.")
+            continue
+        if not teams_match(match.home_team, score["home_team"]) or not teams_match(match.away_team, score["away_team"]):
+            print(
+                "AiScore direct match did not match teams: "
+                f"{score['home_team']} - {score['away_team']} for {match.home_team} - {match.away_team}."
+            )
+            continue
+
+        match.status = "final" if likely_finished(match) else "in_progress"
+        match.home_score = score["home_score"]
+        match.away_score = score["away_score"]
+        match.live_score_url = match_url
+        print(
+            "AiScore direct match updated "
+            f"{match.home_team} - {match.away_team}: {match.home_score}-{match.away_score}."
+        )
+
+
 def preserve_existing_metadata(matches: list[Match], existing: list[dict]) -> None:
     existing_by_id = {item.get("id"): item for item in existing}
     for match in matches:
@@ -610,8 +703,14 @@ def preserve_existing_metadata(matches: list[Match], existing: list[dict]) -> No
             continue
         if old.get("last_seen_at"):
             match.last_seen_at = old["last_seen_at"]
+        if old.get("live_score_url"):
+            match.live_score_url = str(old["live_score_url"])
         if old.get("status") == "final":
             match.status = "final"
+            match.home_score = old.get("home_score")
+            match.away_score = old.get("away_score")
+        elif old.get("status") == "in_progress" and not likely_finished(match):
+            match.status = "in_progress"
             match.home_score = old.get("home_score")
             match.away_score = old.get("away_score")
 
@@ -885,9 +984,11 @@ def run(args: argparse.Namespace) -> int:
     if not args.no_aiscore and needs_aiscore_enrichment(matches):
         try:
             scores = parse_aiscore_scores(fetch(AISCORE_URL))
+            print(f"AiScore team page returned {len(scores)} score rows.")
             enrich_scores(matches, scores)
         except (URLError, TimeoutError, ValueError) as error:
             print(f"AiScore enrichment skipped: {error}", file=sys.stderr)
+        enrich_direct_aiscore_scores(matches)
 
     write_json(data_file, matches)
     write_ics(ics_file, matches)

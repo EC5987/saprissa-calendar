@@ -179,11 +179,11 @@
     "home_team": "Alajuelense",
     "away_team": "Deportivo Saprissa",
     "venue": "Morera Soto",
-    "status": "scheduled",
-    "home_score": null,
-    "away_score": null,
+    "status": "final",
+    "home_score": 0,
+    "away_score": 2,
     "source_url": "https://www.saprissa.com/partidos/masc-apertura2026-lda-saprissa",
-    "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
+    "live_score_url": "https://www.aiscore.com/match-ld-alajuelense-deportivo-saprissa/xvkjoi8ynlms879",
     "last_seen_at": "2026-08-30T06:05:25.416165+00:00"
   },
   {

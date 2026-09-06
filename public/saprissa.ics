@@ -126,13 +126,13 @@ END:VEVENT
 BEGIN:VEVENT
 UID:ae1bcb8ea5543f97@saprissa-calendar.ec5987
 DTSTAMP:20260830T060525Z
-SUMMARY:Alajuelense - Deportivo Saprissa
+SUMMARY:Alajuelense - Deportivo Saprissa (0-2)
 DTSTART;TZID=America/Costa_Rica:20260905T200000
 DTEND;TZID=America/Costa_Rica:20260905T220000
 LOCATION:Estadio Morera Soto
-DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
+ uto a minuto:\nhttps://www.aiscore.com/match-ld-alajuelense-deportivo-sapr
+ issa/xvkjoi8ynlms879
 END:VEVENT
 BEGIN:VEVENT
 UID:af23efbb8764d034@saprissa-calendar.ec5987

@@ -137,12 +137,13 @@ END:VEVENT
 BEGIN:VEVENT
 UID:af23efbb8764d034@saprissa-calendar.ec5987
 DTSTAMP:20260831T200911Z
-SUMMARY:Deportivo Saprissa - Cartaginés
+SUMMARY:Deportivo Saprissa - Cartaginés (2-2)
 DTSTART;TZID=America/Costa_Rica:20260909T190000
 DTEND;TZID=America/Costa_Rica:20260909T210000
 LOCATION:Estadio Ricardo Saprissa
-DESCRIPTION:Primera División - Liga Concacaf\nEstado: programado\nMinuto a
-  minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+DESCRIPTION:Primera División - Liga Concacaf\nEstado: finalizado\nMinuto a
+  minuto:\nhttps://www.aiscore.com/match-deportivo-saprissa-cs-cartagines/9
+ gklzi1gjyvam7x
 END:VEVENT
 BEGIN:VEVENT
 UID:05af54cbae7995e0@saprissa-calendar.ec5987

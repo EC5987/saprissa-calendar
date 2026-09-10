@@ -196,11 +196,11 @@
     "home_team": "Deportivo Saprissa",
     "away_team": "Cartaginés",
     "venue": "Ricardo Saprissa",
-    "status": "scheduled",
-    "home_score": null,
-    "away_score": null,
+    "status": "final",
+    "home_score": 2,
+    "away_score": 2,
     "source_url": "https://www.saprissa.com/partidos/centroamericana-saprissa-csc",
-    "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
+    "live_score_url": "https://www.aiscore.com/match-deportivo-saprissa-cs-cartagines/9gklzi1gjyvam7x",
     "last_seen_at": "2026-08-31T20:09:11.051360+00:00"
   },
   {

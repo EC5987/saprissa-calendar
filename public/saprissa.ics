@@ -148,11 +148,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:05af54cbae7995e0@saprissa-calendar.ec5987
 DTSTAMP:20260830T060525Z
-SUMMARY:Sporting - Deportivo Saprissa
+SUMMARY:Sporting - Deportivo Saprissa (4-2)
 DTSTART;TZID=America/Costa_Rica:20260913T180000
 DTEND;TZID=America/Costa_Rica:20260913T200000
 LOCATION:Estadio Puente Piedra
-DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
+DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
  uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
  27jw
 END:VEVENT

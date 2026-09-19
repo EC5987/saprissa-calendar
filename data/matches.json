@@ -230,9 +230,9 @@
     "home_team": "Cartaginés",
     "away_team": "Deportivo Saprissa",
     "venue": "Fello Meza",
-    "status": "scheduled",
-    "home_score": null,
-    "away_score": null,
+    "status": "final",
+    "home_score": 3,
+    "away_score": 2,
     "source_url": "https://www.saprissa.com/partidos/centroamericana-csc-saprissa",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
     "last_seen_at": "2026-08-31T20:09:11.051492+00:00"

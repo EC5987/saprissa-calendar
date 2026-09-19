@@ -159,11 +159,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:4ce10c67c19d3e85@saprissa-calendar.ec5987
 DTSTAMP:20260831T200911Z
-SUMMARY:Cartaginés - Deportivo Saprissa
+SUMMARY:Cartaginés - Deportivo Saprissa (3-2)
 DTSTART;TZID=America/Costa_Rica:20260916T183000
 DTEND;TZID=America/Costa_Rica:20260916T203000
 LOCATION:Estadio Fello Meza
-DESCRIPTION:Primera División - Liga Concacaf\nEstado: programado\nMinuto a
+DESCRIPTION:Primera División - Liga Concacaf\nEstado: finalizado\nMinuto a
   minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
 END:VEVENT
 BEGIN:VEVENT

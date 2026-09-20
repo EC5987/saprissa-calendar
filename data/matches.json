@@ -247,9 +247,9 @@
     "home_team": "Deportivo Saprissa",
     "away_team": "Herediano",
     "venue": "Ricardo Saprissa",
-    "status": "scheduled",
-    "home_score": null,
-    "away_score": null,
+    "status": "final",
+    "home_score": 2,
+    "away_score": 0,
     "source_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-csh",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
     "last_seen_at": "2026-08-30T06:05:25.416279+00:00"

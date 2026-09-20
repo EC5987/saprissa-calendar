@@ -169,11 +169,11 @@ END:VEVENT
 BEGIN:VEVENT
 UID:a5ca771618400c88@saprissa-calendar.ec5987
 DTSTAMP:20260830T060525Z
-SUMMARY:Deportivo Saprissa - Herediano
+SUMMARY:Deportivo Saprissa - Herediano (2-0)
 DTSTART;TZID=America/Costa_Rica:20260919T200000
 DTEND;TZID=America/Costa_Rica:20260919T220000
 LOCATION:Estadio Ricardo Saprissa
-DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
+DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
  uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
  27jw
 END:VEVENT

@@ -255,23 +255,6 @@
     "last_seen_at": "2026-08-30T06:05:25.416279+00:00"
   },
   {
-    "id": "975254d7fd913da6",
-    "date": "2026-10-11",
-    "time": "16:00",
-    "timezone": "America/Costa_Rica",
-    "is_time_tbd": false,
-    "competition": "Primera División - Torneo de Apertura",
-    "home_team": "Escorpiones",
-    "away_team": "Deportivo Saprissa",
-    "venue": "Edgardo Baltodano",
-    "status": "scheduled",
-    "home_score": null,
-    "away_score": null,
-    "source_url": "https://www.saprissa.com/partidos/masc-apertura2026-lib-saprissa",
-    "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-08-30T06:05:25.416334+00:00"
-  },
-  {
     "id": "b952be01f78552b9",
     "date": "2026-10-15",
     "time": "20:00",

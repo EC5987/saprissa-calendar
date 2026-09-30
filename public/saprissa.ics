@@ -178,17 +178,6 @@ DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
  27jw
 END:VEVENT
 BEGIN:VEVENT
-UID:975254d7fd913da6@saprissa-calendar.ec5987
-DTSTAMP:20260830T060525Z
-SUMMARY:Escorpiones - Deportivo Saprissa
-DTSTART;TZID=America/Costa_Rica:20261011T160000
-DTEND;TZID=America/Costa_Rica:20261011T180000
-LOCATION:Estadio Edgardo Baltodano
-DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
-END:VEVENT
-BEGIN:VEVENT
 UID:b952be01f78552b9@saprissa-calendar.ec5987
 DTSTAMP:20260830T060525Z
 SUMMARY:Deportivo Saprissa - Sporting

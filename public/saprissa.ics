@@ -211,11 +211,11 @@ DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
  27jw
 END:VEVENT
 BEGIN:VEVENT
-UID:e85c30260ea8b826@saprissa-calendar.ec5987
-DTSTAMP:20260830T060525Z
+UID:998ec9b52868f4de@saprissa-calendar.ec5987
+DTSTAMP:20261001T060229Z
 SUMMARY:Deportivo Saprissa - Alajuelense
-DTSTART;TZID=America/Costa_Rica:20261031T200000
-DTEND;TZID=America/Costa_Rica:20261031T220000
+DTSTART;TZID=America/Costa_Rica:20261101T160000
+DTEND;TZID=America/Costa_Rica:20261101T180000
 LOCATION:Estadio Ricardo Saprissa
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
  uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i

@@ -88,42 +88,6 @@ WEEKDAYS = (
     "Domingo",
 )
 
-KNOWN_TEAMS = sorted(
-    {
-        TEAM_NAME,
-        "AD San Carlos",
-        "Alajuelense",
-        "Alianza FC (PAN)",
-        "Cartaginés",
-        "Cartagines",
-        "CD Olimpia",
-        "CS Cartagines",
-        "Deportivo Mixco",
-        "Escorpiones",
-        "Escorpiones Belen",
-        "Escorpiones Belén",
-        "Herediano",
-        "Inter San Carlos",
-        "International San Carlos",
-        "LD Alajuelense",
-        "Liga Deportiva Alajuelense",
-        "Mixco",
-        "Municipal Liberia",
-        "Pérez Zeledón",
-        "Perez Zeledon",
-        "Puntarenas",
-        "Puntarenas FC",
-        "Olimpia",
-        "San Carlos",
-        "Sporting",
-        "Sporting FC",
-        "UMECIT",
-    },
-    key=len,
-    reverse=True,
-)
-
-
 @dataclass
 class Match:
     id: str
@@ -211,6 +175,75 @@ class LinkTextParser(HTMLParser):
             self.text_parts.append(data)
         if self._in_link:
             self._parts.append(data)
+
+
+@dataclass
+class OfficialMatchCard:
+    href: str | None
+    fields: dict[str, list[str]] = field(default_factory=dict)
+    scores: list[list[str]] = field(default_factory=list)
+
+    def text(self, name: str) -> str:
+        return clean_text(" ".join(self.fields.get(name, [])))
+
+
+class OfficialCardParser(HTMLParser):
+    FIELD_CLASSES = {
+        "game-card_date": "date",
+        "game-card_type": "competition",
+        "is-left": "home",
+        "is-right": "away",
+        "game-card_bottom": "venue",
+    }
+    VOID_TAGS = {
+        "area", "base", "br", "col", "embed", "hr", "img", "input", "link",
+        "meta", "param", "source", "track", "wbr",
+    }
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.cards: list[OfficialMatchCard] = []
+        self._card: OfficialMatchCard | None = None
+        self._stack: list[tuple[str, set[str]]] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attributes = dict(attrs)
+        classes = set((attributes.get("class") or "").split())
+        if tag == "a" and "game-card" in classes:
+            self._card = OfficialMatchCard(attributes.get("href"))
+            self._stack = []
+        if self._card is None or tag in self.VOID_TAGS:
+            return
+        self._stack.append((tag, classes))
+        if "game-card_score_item" in classes:
+            self._card.scores.append([])
+
+    def handle_endtag(self, tag: str) -> None:
+        if self._card is None:
+            return
+        if tag == "a":
+            self.cards.append(self._card)
+            self._card = None
+            self._stack = []
+            return
+        for index in range(len(self._stack) - 1, -1, -1):
+            if self._stack[index][0] == tag:
+                del self._stack[index:]
+                break
+
+    def handle_data(self, data: str) -> None:
+        if self._card is None or not data.strip():
+            return
+        classes = {name for _, names in self._stack for name in names}
+        for class_name, field_name in self.FIELD_CLASSES.items():
+            if class_name in classes:
+                self._card.fields.setdefault(field_name, []).append(data)
+        if "game-card_score_item" in classes:
+            self._card.scores[-1].append(data)
+
+
+class OfficialParseError(ValueError):
+    pass
 
 
 def clean_text(value: str) -> str:
@@ -302,62 +335,47 @@ def teams_match(a: str, b: str) -> bool:
     return bool(left and right and (left == right or left in right or right in left))
 
 
-def split_known_team_at_end(value: str) -> tuple[str, str] | None:
-    normalized = clean_text(value)
-    for team in KNOWN_TEAMS:
-        if normalized.endswith(team):
-            return clean_text(normalized[: -len(team)]), team
-    return None
-
-
-def split_known_team_at_start(value: str) -> tuple[str, str] | None:
-    normalized = clean_text(value)
-    for team in KNOWN_TEAMS:
-        if normalized.startswith(team):
-            return team, clean_text(normalized[len(team) :])
-    return None
-
-
-def parse_official_match(text: str, href: str | None) -> Match | None:
-    text = clean_text(text)
-    if "(FF)" in text:
+def parse_official_card(card: OfficialMatchCard, *, completed: bool) -> Match | None:
+    home = card.text("home")
+    away = card.text("away")
+    if "(FF)" in home or "(FF)" in away:
         return None
 
+    competition = card.text("competition")
+    if not home or not away or not competition:
+        raise ValueError("Missing team name or competition")
+    if not teams_match(home, TEAM_NAME) and not teams_match(away, TEAM_NAME):
+        raise ValueError("Neither team is Deportivo Saprissa")
+
     weekday_pattern = "|".join(re.escape(day) for day in WEEKDAYS)
-    match = re.match(
+    match = re.fullmatch(
         rf"^(?:{weekday_pattern})\s+"
         r"(?P<day>\d{1,2})\s+de\s+"
         r"(?P<month>[A-Za-zÁÉÍÓÚáéíóúñÑ.]+)\s*,\s*"
         r"(?P<year>\d{4})\s*-\s*"
-        r"(?P<time>(?:\d{1,2}:\d{2}\s*(?:am|pm|AM|PM))|(?:TBD|Por definir|Por confirmar|A definir))\s+"
-        r"(?P<body>.+)$",
-        text,
+        r"(?P<time>(?:\d{1,2}:\d{2}\s*(?:am|pm|AM|PM))|(?:TBD|Por definir|Por confirmar|A definir))",
+        card.text("date"),
     )
     if not match:
-        return None
-
-    body = clean_text(re.sub(r"\bLive$", "", match.group("body")).strip())
-    body = re.sub(r"\s*--\s*--\s*", "----", body)
-    if "----" not in body:
-        return None
-
-    left, right = [clean_text(part) for part in body.split("----", 1)]
-    left_parts = split_known_team_at_end(left)
-    right_parts = split_known_team_at_start(right)
-    if not left_parts or not right_parts:
-        return None
-
-    competition, home = left_parts
-    away, venue = right_parts
-    if not teams_match(home, TEAM_NAME) and not teams_match(away, TEAM_NAME):
-        return None
+        raise ValueError(f"Unrecognized match date: {card.text('date')}")
 
     match_date = date(int(match.group("year")), parse_month(match.group("month")), int(match.group("day")))
+    if completed and match_date < SEASON_START:
+        return None
     match_time, is_time_tbd = parse_time(match.group("time"))
+    if match_time:
+        time.fromisoformat(match_time)
 
-    source_url = OFFICIAL_URL
-    if href:
-        source_url = href if href.startswith("http") else f"https://www.saprissa.com{href}"
+    home_score = away_score = None
+    if completed:
+        scores = [clean_text(" ".join(parts)).replace("--", "").strip() for parts in card.scores]
+        if len(scores) != 2 or not all(re.fullmatch(r"\d+", score) for score in scores):
+            raise ValueError("Missing final scores on results card")
+        home_score, away_score = map(int, scores)
+
+    source_url = RESULTS_URL if completed else OFFICIAL_URL
+    if card.href:
+        source_url = card.href if card.href.startswith("http") else f"https://www.saprissa.com{card.href}"
 
     return Match(
         id=make_match_id(match_date, competition, home, away),
@@ -368,105 +386,44 @@ def parse_official_match(text: str, href: str | None) -> Match | None:
         competition=competition,
         home_team=home,
         away_team=away,
-        venue=venue or None,
+        venue=card.text("venue") or None,
+        status="final" if completed else "scheduled",
+        home_score=home_score,
+        away_score=away_score,
         source_url=source_url,
     )
 
 
-def parse_official_result(text: str, href: str | None) -> Match | None:
-    text = clean_text(text)
-    if "(FF)" in text:
-        return None
+def parse_official_cards(page_html: str, *, completed: bool) -> list[Match]:
+    parser = OfficialCardParser()
+    parser.feed(page_html)
+    source_url = RESULTS_URL if completed else OFFICIAL_URL
+    if not parser.cards or parser._card is not None:
+        raise OfficialParseError(f"No complete match list found at {source_url}; keeping the existing feed.")
 
-    weekday_pattern = "|".join(re.escape(day) for day in WEEKDAYS)
-    match = re.match(
-        rf"^(?:{weekday_pattern})\s+"
-        r"(?P<day>\d{1,2})\s+de\s+"
-        r"(?P<month>[A-Za-zÁÉÍÓÚáéíóúñÑ.]+)\s*,\s*"
-        r"(?P<year>\d{4})\s*-\s*"
-        r"(?P<time>(?:\d{1,2}:\d{2}\s*(?:am|pm|AM|PM))|(?:TBD|Por definir|Por confirmar|A definir))\s+"
-        r"(?P<body>.+)$",
-        text,
-    )
-    if not match:
-        return None
+    matches: list[Match] = []
+    seen: set[str] = set()
+    for card in parser.cards:
+        try:
+            parsed = parse_official_card(card, completed=completed)
+        except ValueError as error:
+            raise OfficialParseError(
+                f"Cannot read match {card.href or '(no link)'} at {source_url}: {error}; keeping the existing feed."
+            ) from error
+        if parsed and parsed.id not in seen:
+            matches.append(parsed)
+            seen.add(parsed.id)
 
-    body = clean_text(re.sub(r"\bLive$", "", match.group("body")).strip())
-    body_match = re.match(r"(?P<left>.+?)\s+(?P<home_score>\d+)\s*--\s*(?P<away_score>\d+)\s*--\s*(?P<right>.+)$", body)
-    if not body_match:
-        return None
-
-    left = clean_text(body_match.group("left"))
-    right = clean_text(body_match.group("right"))
-    left_parts = split_known_team_at_end(left)
-    right_parts = split_known_team_at_start(right)
-    if not left_parts or not right_parts:
-        return None
-
-    competition, home = left_parts
-    away, venue = right_parts
-    if not teams_match(home, TEAM_NAME) and not teams_match(away, TEAM_NAME):
-        return None
-
-    match_date = date(int(match.group("year")), parse_month(match.group("month")), int(match.group("day")))
-    if match_date < SEASON_START:
-        return None
-
-    match_time, is_time_tbd = parse_time(match.group("time"))
-
-    source_url = RESULTS_URL
-    if href:
-        source_url = href if href.startswith("http") else f"https://www.saprissa.com{href}"
-
-    return Match(
-        id=make_match_id(match_date, competition, home, away),
-        date=match_date.isoformat(),
-        time=match_time,
-        timezone=TIMEZONE_ID,
-        is_time_tbd=is_time_tbd,
-        competition=competition,
-        home_team=home,
-        away_team=away,
-        venue=venue or None,
-        status="final",
-        home_score=int(body_match.group("home_score")),
-        away_score=int(body_match.group("away_score")),
-        source_url=source_url,
-    )
+    print(f"Saprissa {'results' if completed else 'calendar'}: parsed {len(matches)} men's matches from {len(parser.cards)} cards.")
+    return sorted(matches, key=lambda item: (item.date, item.time or "99:99", item.home_team, item.away_team))
 
 
 def parse_official_schedule(page_html: str) -> list[Match]:
-    parser = LinkTextParser()
-    parser.feed(page_html)
-
-    matches: list[Match] = []
-    seen: set[str] = set()
-    for text, href in parser.links:
-        if not any(text.startswith(day) for day in WEEKDAYS):
-            continue
-        parsed = parse_official_match(text, href)
-        if parsed and parsed.id not in seen:
-            matches.append(parsed)
-            seen.add(parsed.id)
-
-    return sorted(matches, key=lambda item: (item.date, item.time or "99:99", item.home_team, item.away_team))
+    return parse_official_cards(page_html, completed=False)
 
 
 def parse_official_results(page_html: str) -> list[Match]:
-    parser = LinkTextParser()
-    parser.feed(page_html)
-
-    matches: list[Match] = []
-    seen: set[str] = set()
-    for text, href in parser.links:
-        if not any(text.startswith(day) for day in WEEKDAYS):
-            continue
-        parsed = parse_official_result(text, href)
-        if parsed and parsed.id not in seen:
-            matches.append(parsed)
-            seen.add(parsed.id)
-
-    return sorted(matches, key=lambda item: (item.date, item.time or "99:99", item.home_team, item.away_team))
+    return parse_official_cards(page_html, completed=True)
 
 
 def parse_aiscore_scores(page_html: str) -> list[dict]:
@@ -747,18 +704,31 @@ def enrich_direct_aiscore_scores(matches: list[Match]) -> set[str]:
 
 def preserve_existing_metadata(matches: list[Match], existing: list[dict]) -> None:
     existing_by_id = {item.get("id"): item for item in existing}
+    existing_by_source: dict[str, list[dict]] = {}
+    for item in existing:
+        source = str(item.get("source_url") or "")
+        if source.startswith("https://www.saprissa.com/partidos/"):
+            existing_by_source.setdefault(source, []).append(item)
     for match in matches:
         old = existing_by_id.get(match.id)
+        # Official match links stay stable when a team name or kickoff changes.
+        if not old:
+            candidates = existing_by_source.get(match.source_url, [])
+            if len(candidates) == 1:
+                old = candidates[0]
+                match.id = old["id"]
         if not old:
             continue
-        if old.get("last_seen_at"):
-            match.last_seen_at = old["last_seen_at"]
         if old.get("live_score_url"):
             match.live_score_url = str(old["live_score_url"])
         if old.get("status") == "final":
             match.status = "final"
             match.home_score = old.get("home_score")
             match.away_score = old.get("away_score")
+        current = match.to_dict()
+        current.pop("last_seen_at")
+        if all(old.get(key) == value for key, value in current.items()) and old.get("last_seen_at"):
+            match.last_seen_at = old["last_seen_at"]
 
 
 def costa_rica_today() -> date:
@@ -984,12 +954,18 @@ def run(args: argparse.Namespace) -> int:
         official_html = fetch(OFFICIAL_URL)
         fixture_matches = parse_official_schedule(official_html)
         fixture_source_ok = True
+    except OfficialParseError as error:
+        print(error, file=sys.stderr)
+        return 1
     except (URLError, TimeoutError) as error:
         print(f"Saprissa calendar fetch skipped: {error}", file=sys.stderr)
 
     try:
         results_html = fetch(RESULTS_URL)
         result_matches = parse_official_results(results_html)
+    except OfficialParseError as error:
+        print(error, file=sys.stderr)
+        return 1
     except (URLError, TimeoutError) as error:
         print(f"Saprissa results fetch skipped: {error}", file=sys.stderr)
 

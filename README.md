@@ -21,6 +21,7 @@ data/matches.json        Stored match data
 public/saprissa.ics      Public calendar feed
 public/index.html        Small GitHub Pages entry page
 scripts/update.py        Scraper, optional score enrichment, and ICS generator
+tests/test_update.py     Parser and feed-preservation regression tests
 .github/workflows/update.yml
 ```
 
@@ -45,6 +46,12 @@ To disable the AiScore fallback while testing:
 python3 scripts/update.py --no-aiscore
 ```
 
+To run the offline regression tests:
+
+```bash
+python3 -m unittest discover -s tests
+```
+
 To write outputs somewhere else:
 
 ```bash
@@ -59,6 +66,9 @@ python3 scripts/update.py --data-file /tmp/matches.json --ics-file /tmp/saprissa
 - Event titles use the format `Home Team - Away Team`.
 - Completed matches include the score when available, like `Home Team - Away Team (2-1)`.
 - Future fixtures come from the official Saprissa calendar.
+- Team names and stadiums are read directly from the official match cards, without a fixed opponent list.
+- If an official match card cannot be read, the update fails before changing the feed. GitHub Actions logs identify the affected match.
+- Existing events retain their calendar IDs when the same official match link changes its team name or kickoff.
 - Completed men's matches from July 1, 2026 onward come from Saprissa's official results page.
 - AiScore is only used as a fallback for completed matches when Saprissa is missing a final score.
 - Live, in-progress score changes are intentionally not published to the calendar.

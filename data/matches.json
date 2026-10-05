@@ -68,6 +68,23 @@
     "last_seen_at": "2026-08-30T06:11:38.485787+00:00"
   },
   {
+    "id": "d093c7df338c658e",
+    "date": "2026-08-05",
+    "time": "20:00",
+    "timezone": "America/Costa_Rica",
+    "is_time_tbd": false,
+    "competition": "Primera División - Liga Concacaf",
+    "home_team": "Deportivo Saprissa",
+    "away_team": "Alianza FC",
+    "venue": "Ricardo Saprissa",
+    "status": "final",
+    "home_score": 2,
+    "away_score": 1,
+    "source_url": "https://www.saprissa.com/partidos/centroamericana-saprissa-alianza",
+    "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
+    "last_seen_at": "2026-10-05T21:16:48.867195+00:00"
+  },
+  {
     "id": "0842953904cd9ebb",
     "date": "2026-08-08",
     "time": "20:00",
@@ -160,14 +177,14 @@
     "is_time_tbd": false,
     "competition": "Primera División - Torneo de Apertura",
     "home_team": "Deportivo Saprissa",
-    "away_team": "Escorpiones",
-    "venue": "de Belén Ricardo Saprissa",
+    "away_team": "Escorpiones de Belén",
+    "venue": "Ricardo Saprissa",
     "status": "final",
     "home_score": 2,
     "away_score": 1,
     "source_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-liberia",
     "live_score_url": "https://www.aiscore.com/match-deportivo-saprissa-escorpiones-belen/g6763i5or2gso7r",
-    "last_seen_at": "2026-08-30T06:05:25.416086+00:00"
+    "last_seen_at": "2026-10-05T21:16:48.866665+00:00"
   },
   {
     "id": "ae1bcb8ea5543f97",
@@ -255,6 +272,23 @@
     "last_seen_at": "2026-08-30T06:05:25.416279+00:00"
   },
   {
+    "id": "c22b9c0625d2eac5",
+    "date": "2026-10-11",
+    "time": "17:00",
+    "timezone": "America/Costa_Rica",
+    "is_time_tbd": false,
+    "competition": "Primera División - Torneo de Apertura",
+    "home_team": "Escorpiones de Belén",
+    "away_team": "Deportivo Saprissa",
+    "venue": "Rafael Bolaños",
+    "status": "scheduled",
+    "home_score": null,
+    "away_score": null,
+    "source_url": "https://www.saprissa.com/partidos/masc-apertura2026-lib-saprissa",
+    "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
+    "last_seen_at": "2026-10-05T21:16:48.739276+00:00"
+  },
+  {
     "id": "b952be01f78552b9",
     "date": "2026-10-15",
     "time": "20:00",
@@ -274,7 +308,7 @@
   {
     "id": "dfd8d59db92800ed",
     "date": "2026-10-18",
-    "time": "16:00",
+    "time": "23:00",
     "timezone": "America/Costa_Rica",
     "is_time_tbd": false,
     "competition": "Primera División - Torneo de Apertura",
@@ -286,7 +320,24 @@
     "away_score": null,
     "source_url": "https://www.saprissa.com/partidos/masc-apertura2026-csc-saprissa",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-08-30T06:05:25.416441+00:00"
+    "last_seen_at": "2026-10-05T21:16:48.739484+00:00"
+  },
+  {
+    "id": "e19cb0b26c04287f",
+    "date": "2026-10-21",
+    "time": "18:30",
+    "timezone": "America/Costa_Rica",
+    "is_time_tbd": false,
+    "competition": "Primera División - Liga Concacaf",
+    "home_team": "L.A. Firpo",
+    "away_team": "Deportivo Saprissa",
+    "venue": "Jorge “Mágico” González.",
+    "status": "scheduled",
+    "home_score": null,
+    "away_score": null,
+    "source_url": "https://www.saprissa.com/partidos/playin-centroamericana-firpo-saprissa",
+    "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
+    "last_seen_at": "2026-10-05T21:16:48.739580+00:00"
   },
   {
     "id": "f433a8f2837aeb7a",
@@ -304,6 +355,23 @@
     "source_url": "https://www.saprissa.com/partidos/masc-apertura2026-sancarlos-saprissa",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
     "last_seen_at": "2026-08-30T06:05:25.416496+00:00"
+  },
+  {
+    "id": "41e7d8797ccb1f71",
+    "date": "2026-10-28",
+    "time": "18:30",
+    "timezone": "America/Costa_Rica",
+    "is_time_tbd": false,
+    "competition": "Primera División - Liga Concacaf",
+    "home_team": "Deportivo Saprissa",
+    "away_team": "L.A. Firpo",
+    "venue": "Ricardo Saprissa",
+    "status": "scheduled",
+    "home_score": null,
+    "away_score": null,
+    "source_url": "https://www.saprissa.com/partidos/playin-centroamericana-saprissa-firpo",
+    "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
+    "last_seen_at": "2026-10-05T21:16:48.739774+00:00"
   },
   {
     "id": "998ec9b52868f4de",

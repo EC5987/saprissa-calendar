@@ -189,12 +189,12 @@ DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
 END:VEVENT
 BEGIN:VEVENT
 UID:c22b9c0625d2eac5@saprissa-calendar.ec5987
-DTSTAMP:20261005T211648Z
-SUMMARY:Escorpiones de Belén - Deportivo Saprissa
+DTSTAMP:20261013T020341Z
+SUMMARY:Escorpiones de Belén - Deportivo Saprissa (1-0)
 DTSTART;TZID=America/Costa_Rica:20261011T170000
 DTEND;TZID=America/Costa_Rica:20261011T190000
 LOCATION:Estadio Rafael Bolaños
-DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
+DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
  uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
  27jw
 END:VEVENT

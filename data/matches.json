@@ -281,12 +281,12 @@
     "home_team": "Escorpiones de Belén",
     "away_team": "Deportivo Saprissa",
     "venue": "Rafael Bolaños",
-    "status": "scheduled",
-    "home_score": null,
-    "away_score": null,
+    "status": "final",
+    "home_score": 1,
+    "away_score": 0,
     "source_url": "https://www.saprissa.com/partidos/masc-apertura2026-lib-saprissa",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-05T21:16:48.739276+00:00"
+    "last_seen_at": "2026-10-13T02:03:41.365939+00:00"
   },
   {
     "id": "b952be01f78552b9",

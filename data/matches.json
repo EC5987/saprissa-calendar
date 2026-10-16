@@ -298,12 +298,12 @@
     "home_team": "Deportivo Saprissa",
     "away_team": "Sporting",
     "venue": "Ricardo Saprissa",
-    "status": "scheduled",
-    "home_score": null,
-    "away_score": null,
+    "status": "final",
+    "home_score": 6,
+    "away_score": 0,
     "source_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-sporting",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-08-30T06:05:25.416385+00:00"
+    "last_seen_at": "2026-10-16T07:15:28.962446+00:00"
   },
   {
     "id": "dfd8d59db92800ed",

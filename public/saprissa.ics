@@ -214,12 +214,12 @@ DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
 END:VEVENT
 BEGIN:VEVENT
 UID:dfd8d59db92800ed@saprissa-calendar.ec5987
-DTSTAMP:20261018T164706Z
-SUMMARY:C.S. Cartaginés - Deportivo Saprissa
+DTSTAMP:20261018T204957Z
+SUMMARY:C.S. Cartaginés - Deportivo Saprissa (1-0)
 DTSTART;TZID=America/Costa_Rica:20261018T110000
 DTEND;TZID=America/Costa_Rica:20261018T130000
 LOCATION:Estadio José Rafael "Fello" Meza
-DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
+DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
  uto a minuto:\nhttps://www.sofascore.com/es/football/match/cs-cartagines-d
  eportivo-saprissa/zGcsUPc
 END:VEVENT

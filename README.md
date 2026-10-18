@@ -60,6 +60,12 @@ python3 scripts/update.py --data-file /tmp/matches.json --ics-file /tmp/saprissa
 
 ## Calendar Behavior
 
+### API-Football Evaluation
+
+The separate `Check API-Football coverage` workflow tests current-season access without changing the calendar feed. It uses the repository Actions secret `API_FOOTBALL_KEY`; never commit the key or put it in a URL. It calls `/teams?search=saprissa` and `/fixtures?team=TEAM_ID&season=2026` (two requests per test), then logs competition coverage and kickoff times in Costa Rica time. API plan errors are reported even when the HTTP response is successful. The published calendar still uses the sources below until coverage is verified.
+
+### Published Feed
+
 - Match times are stored as Costa Rica time: `America/Costa_Rica`.
 - Calendar apps should convert the event time to each subscriber's local time zone.
 - Matches with unknown times are emitted as all-day placeholder events.

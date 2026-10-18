@@ -1,0 +1,35 @@
+name: Check API-Football coverage
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - scripts/api_football.py
+      - tests/test_api_football.py
+      - .github/workflows/check-api-football.yml
+
+permissions:
+  contents: read
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Run regression tests
+        run: python -m unittest discover -s tests
+
+      - name: Check Saprissa fixtures for 2026
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: python scripts/api_football.py --season 2026

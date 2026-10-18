@@ -211,10 +211,10 @@ DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
 END:VEVENT
 BEGIN:VEVENT
 UID:dfd8d59db92800ed@saprissa-calendar.ec5987
-DTSTAMP:20261005T211648Z
+DTSTAMP:20261018T162257Z
 SUMMARY:Cartaginés - Deportivo Saprissa
-DTSTART;TZID=America/Costa_Rica:20261018T230000
-DTEND;TZID=America/Costa_Rica:20261019T010000
+DTSTART;TZID=America/Costa_Rica:20261018T110000
+DTEND;TZID=America/Costa_Rica:20261018T130000
 LOCATION:Estadio Fello Meza
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
  uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i

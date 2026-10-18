@@ -64,6 +64,8 @@ python3 scripts/update.py --data-file /tmp/matches.json --ics-file /tmp/saprissa
 
 The separate `Check API-Football coverage` workflow tests current-season access without changing the calendar feed. It uses the repository Actions secret `API_FOOTBALL_KEY`; never commit the key or put it in a URL. It calls `/teams?search=saprissa` and `/fixtures?team=TEAM_ID&season=2026` (two requests per test), then logs competition coverage and kickoff times in Costa Rica time. API plan errors are reported even when the HTTP response is successful. The published calendar still uses the sources below until coverage is verified.
 
+The October 18, 2026 check successfully authenticated and identified Deportivo Saprissa as team ID `816`. The fixture request was rejected with: `Free plans do not have access to this season, try from 2022 to 2024.` The current free plan therefore cannot replace the published calendar's data source. Re-run this workflow after a plan change before enabling a migration; current-season fixture coverage and kickoff accuracy still need verification.
+
 ### Published Feed
 
 - Match times are stored as Costa Rica time: `America/Costa_Rica`.

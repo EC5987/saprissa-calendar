@@ -25,6 +25,11 @@ SEASON_START = date(2026, 7, 1)
 CALENDAR_NAME = "Saprissa - Calendario"
 FINAL_SCORE_FALLBACK_AFTER = timedelta(hours=4)
 
+# Verified against Sofascore and ESPN; Saprissa incorrectly lists this as 11 pm.
+KICKOFF_CORRECTIONS = {
+    ("2026-10-18", "https://www.saprissa.com/partidos/masc-apertura2026-csc-saprissa"): "11:00",
+}
+
 MONTHS = {
     "jan": 1,
     "january": 1,
@@ -702,6 +707,20 @@ def enrich_direct_aiscore_scores(matches: list[Match]) -> set[str]:
     return nonfinal_match_ids
 
 
+def apply_verified_kickoffs(matches: list[Match]) -> None:
+    for match in matches:
+        corrected_time = KICKOFF_CORRECTIONS.get((match.date, match.source_url))
+        if corrected_time is None or (
+            match.time == corrected_time and match.timezone == TIMEZONE_ID and not match.is_time_tbd
+        ):
+            continue
+        print(f"Verified kickoff correction: {match.home_team} - {match.away_team}, {match.date} {corrected_time} Costa Rica.")
+        match.time = corrected_time
+        match.timezone = TIMEZONE_ID
+        match.is_time_tbd = False
+        match.last_seen_at = datetime.now(timezone.utc).isoformat()
+
+
 def preserve_existing_metadata(matches: list[Match], existing: list[dict]) -> None:
     existing_by_id = {item.get("id"): item for item in existing}
     existing_by_source: dict[str, list[dict]] = {}
@@ -973,6 +992,7 @@ def run(args: argparse.Namespace) -> int:
         print("No matches found on the official Saprissa calendar page.", file=sys.stderr)
         return 1
 
+    apply_verified_kickoffs(fixture_matches + result_matches)
     preserve_existing_metadata(fixture_matches, existing)
     preserve_existing_metadata(result_matches, existing)
     matches = merge_matches(
@@ -981,6 +1001,7 @@ def run(args: argparse.Namespace) -> int:
         existing,
         prune_stale_future=fixture_source_ok,
     )
+    apply_verified_kickoffs(matches)
     discard_live_score_state(matches)
 
     if not args.no_aiscore:

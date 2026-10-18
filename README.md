@@ -74,6 +74,7 @@ The October 18, 2026 check successfully authenticated and identified Deportivo S
 - Event titles use the format `Home Team - Away Team`.
 - Completed matches include the score when available, like `Home Team - Away Team (2-1)`.
 - Future fixtures come from the official Saprissa calendar.
+- A targeted kickoff correction sets Cartagines vs. Saprissa on October 18, 2026 to 11:00 a.m. Costa Rica time, verified against Sofascore and ESPN. This overrides the official site's incorrect 11:00 p.m. on each update; other fixtures continue to use the official source.
 - Team names and stadiums are read directly from the official match cards, without a fixed opponent list.
 - If an official match card cannot be read, the update fails before changing the feed. GitHub Actions logs identify the affected match.
 - Existing events retain their calendar IDs when the same official match link changes its team name or kickoff.

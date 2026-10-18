@@ -94,6 +94,43 @@ class OfficialParserTests(unittest.TestCase):
         update.preserve_existing_metadata([new], [old.to_dict()])
         self.assertEqual(new.last_seen_at, old.last_seen_at)
 
+    def test_verified_kickoff_survives_repeated_scrapes(self):
+        source = "https://www.saprissa.com/partidos/masc-apertura2026-csc-saprissa"
+        page = card(
+            home="Cartagin\u00e9s", away="Deportivo Saprissa",
+            date="Sunday 18 de October , 2026 - 11:00 pm",
+        ).replace("/partidos/test-match", source)
+        original, = update.parse_official_schedule(page)
+        original.last_seen_at = "2026-10-05T21:16:48+00:00"
+        results = card(date="Wednesday 28 de October , 2026 - 6:30 pm", scores=(2, 0))
+        with tempfile.TemporaryDirectory() as directory:
+            data_path = Path(directory) / "matches.json"
+            ics_path = Path(directory) / "saprissa.ics"
+            update.write_json(data_path, [original])
+            args = argparse.Namespace(data_file=str(data_path), ics_file=str(ics_path), no_aiscore=True)
+            for attempt in range(2):
+                with patch.object(update, "fetch", side_effect=[page, results]):
+                    self.assertEqual(update.run(args), 0)
+                saved = next(m for m in update.load_existing(data_path) if m["source_url"] == source)
+                self.assertEqual(saved["time"], "11:00")
+                self.assertEqual(saved["id"], original.id)
+                if attempt == 0:
+                    stamp = saved["last_seen_at"]
+                    self.assertNotEqual(stamp, original.last_seen_at)
+                else:
+                    self.assertEqual(saved["last_seen_at"], stamp)
+                event = next(e for e in ics_path.read_text().split("BEGIN:VEVENT") if original.id in e)
+                self.assertIn("DTSTART;TZID=America/Costa_Rica:20261018T110000", event)
+                self.assertIn("DTEND;TZID=America/Costa_Rica:20261018T130000", event)
+
+    def test_verified_kickoff_is_limited_to_the_confirmed_match(self):
+        matches = update.parse_official_schedule(card(
+            home="Cartagin\u00e9s", away="Deportivo Saprissa",
+            date="Sunday 18 de October , 2026 - 11:00 pm",
+        ))
+        update.apply_verified_kickoffs(matches)
+        self.assertEqual(matches[0].time, "23:00")
+
     def test_parse_failure_leaves_existing_files_untouched(self):
         for failed_source in [update.OFFICIAL_URL, update.RESULTS_URL]:
             with self.subTest(source=failed_source), tempfile.TemporaryDirectory() as directory:

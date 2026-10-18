@@ -86,6 +86,8 @@ The October 18, 2026 check successfully authenticated and identified Deportivo S
 - AiScore is only used as a fallback when a final score is missing from the other sources.
 - Cancelled fixtures retain their event ID and receive `STATUS:CANCELLED`; postponed, delayed, suspended, and abandoned states use Spanish notes.
 - Live, in-progress score changes are intentionally not published to the calendar.
+- The notes' `Minuto a minuto` link goes to Sofascore. A verified Cartagines-Saprissa matchup link is configured for October 18; other fixtures open Saprissa's Sofascore page until a verified match link is available. Matchup URLs can follow a later meeting after it is announced, so these are not guaranteed permanent archives of a specific game. No Sofascore scraping is added.
+- `minute_by_minute_url` is the public link. The legacy `live_score_url` field is retained only for the internal AiScore final-score fallback and is never shown in event notes. Link changes update the event timestamp while preserving its ID.
 - Past matches already stored in `data/matches.json` are preserved so scores can still be added after they leave the official schedule page.
 
 ## Apple Calendar Subscription

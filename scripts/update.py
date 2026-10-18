@@ -24,6 +24,11 @@ else:
 OFFICIAL_URL = "https://www.saprissa.com/calendario"
 RESULTS_URL = "https://www.saprissa.com/resultados"
 AISCORE_URL = "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw"
+SOFASCORE_URL = "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
+# Match pages are used only after verifying the opponent and fixture date.
+SOFASCORE_MATCH_LINKS = {
+    ("unafut", "2373:396178"): "https://www.sofascore.com/es/football/match/cs-cartagines-deportivo-saprissa/zGcsUPc",
+}
 TEAM_NAME = "Deportivo Saprissa"
 TIMEZONE_ID = "America/Costa_Rica"
 SEASON_START = date(2026, 7, 1)
@@ -118,6 +123,7 @@ class Match:
     source: str = "saprissa"
     source_match_id: str | None = None
     saprissa_url: str | None = None
+    minute_by_minute_url: str = ""
 
     def to_dict(self) -> dict:
         return {
@@ -139,6 +145,7 @@ class Match:
             "source": self.source,
             "source_match_id": self.source_match_id,
             "saprissa_url": self.saprissa_url,
+            "minute_by_minute_url": self.minute_by_minute_url,
         }
 
     @classmethod
@@ -162,6 +169,7 @@ class Match:
             source=str(data.get("source") or "saprissa"),
             source_match_id=data.get("source_match_id"),
             saprissa_url=data.get("saprissa_url"),
+            minute_by_minute_url=str(data.get("minute_by_minute_url") or ""),
         )
 
 
@@ -735,6 +743,14 @@ def apply_verified_kickoffs(matches: list[Match]) -> None:
         match.last_seen_at = datetime.now(timezone.utc).isoformat()
 
 
+def set_minute_by_minute_links(matches: list[Match]) -> None:
+    for match in matches:
+        target = SOFASCORE_MATCH_LINKS.get((match.source, match.source_match_id), SOFASCORE_URL)
+        if match.minute_by_minute_url != target:
+            match.minute_by_minute_url = target
+            match.last_seen_at = datetime.now(timezone.utc).isoformat()
+
+
 def preserve_existing_metadata(matches: list[Match], existing: list[dict]) -> None:
     existing_by_id = {item.get("id"): item for item in existing}
     existing_by_source: dict[str, list[dict]] = {}
@@ -754,6 +770,7 @@ def preserve_existing_metadata(matches: list[Match], existing: list[dict]) -> No
             continue
         if old.get("live_score_url"):
             match.live_score_url = str(old["live_score_url"])
+        match.minute_by_minute_url = str(old.get("minute_by_minute_url") or "")
         if old.get("status") == "final":
             match.status = "final"
             match.home_score = old.get("home_score")
@@ -816,6 +833,7 @@ def prioritize_competition_matches(primary: list[Match], supplemental: list[Matc
             if old.source == "saprissa" and "/partidos/" in old.source_url:
                 match.saprissa_url = old.source_url
             match.live_score_url = old.live_score_url
+            match.minute_by_minute_url = old.minute_by_minute_url
         matching_supplements = [item for item in merged if item.id == match.id or same_fixture(match, item)]
         if not match.saprissa_url:
             match.saprissa_url = next((item.source_url for item in matching_supplements
@@ -823,6 +841,7 @@ def prioritize_competition_matches(primary: list[Match], supplemental: list[Matc
         if not old and matching_supplements:
             match.id = matching_supplements[0].id
             match.live_score_url = matching_supplements[0].live_score_url
+            match.minute_by_minute_url = matching_supplements[0].minute_by_minute_url
         if match.id in used_ids:
             raise official_sources.SourceError("Two competition fixtures would share the same calendar event ID.")
         used_ids.add(match.id)
@@ -1019,7 +1038,7 @@ def write_ics(path: Path, matches: Iterable[Match]) -> None:
             match.competition,
             f"Estado: {spanish_status(match.status)}",
             "Minuto a minuto:",
-            match.live_score_url,
+            match.minute_by_minute_url or SOFASCORE_URL,
         ]
 
         lines.append("BEGIN:VEVENT")
@@ -1112,6 +1131,7 @@ def run(args: argparse.Namespace) -> int:
             except (URLError, TimeoutError, ValueError) as error:
                 print(f"AiScore enrichment skipped: {error}", file=sys.stderr)
 
+    set_minute_by_minute_links(matches)
     write_json(data_file, matches)
     write_ics(ics_file, matches)
     print(f"Wrote {len(matches)} matches to {data_file} and {ics_file}.")

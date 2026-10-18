@@ -17,293 +17,298 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:d49197a58fad67a3@saprissa-calendar.ec5987
-DTSTAMP:20261018T164139Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - Herediano (0-1)
 DTSTART;TZID=America/Costa_Rica:20260717T200000
 DTEND;TZID=America/Costa_Rica:20260717T220000
 LOCATION:Estadio Fello Meza
 DESCRIPTION:Primera División - Re Copa\nEstado: finalizado\nMinuto a minut
- o:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ o:\nhttps://www.sofascore.com/es/football/team/deportivo-saprissa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:cd63f43ffc6ebe88@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - Municipal Pérez Zeledón (5-1)
 DTSTART;TZID=America/Costa_Rica:20260724T200000
 DTEND;TZID=America/Costa_Rica:20260724T220000
 LOCATION:Estadio Ricardo Saprissa Ayma
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:9e951d7fdbfde0f8@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:UMECIT FC - Deportivo Saprissa (1-2)
 DTSTART;TZID=America/Costa_Rica:20260729T180000
 DTEND;TZID=America/Costa_Rica:20260729T200000
 LOCATION:Estadio Universidad Latina
 DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: finalizado\nMinuto a 
- minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-saprissa/657
+ 4
 END:VEVENT
 BEGIN:VEVENT
 UID:ef6dbd4aac5598ad@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - A.D. San Carlos (2-1)
 DTSTART;TZID=America/Costa_Rica:20260802T160000
 DTEND;TZID=America/Costa_Rica:20260802T180000
 LOCATION:Estadio Ricardo Saprissa Ayma
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.aiscore.com/match-deportivo-saprissa-ad-san-car
- los/zrkn6i4genniwql
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:d093c7df338c658e@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - Alianza FC (PAN) (2-1)
 DTSTART;TZID=America/Costa_Rica:20260805T200000
 DTEND;TZID=America/Costa_Rica:20260805T220000
 LOCATION:Estadio Ricardo Saprissa Aymá
 DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: finalizado\nMinuto a 
- minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-saprissa/657
+ 4
 END:VEVENT
 BEGIN:VEVENT
 UID:0842953904cd9ebb@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Puntarenas F.C. - Deportivo Saprissa (0-2)
 DTSTART;TZID=America/Costa_Rica:20260808T200000
 DTEND;TZID=America/Costa_Rica:20260808T220000
 LOCATION:Estadio Miguel Ángel Lito Pérez
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.aiscore.com/match-puntarenas-fc-deportivo-sapri
- ssa/ndkz6i3yjojixq3
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:eb82fd6f73526932@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - Deportivo Mixco (3-0)
 DTSTART;TZID=America/Costa_Rica:20260811T200000
 DTEND;TZID=America/Costa_Rica:20260811T220000
 LOCATION:Estadio Ricardo Saprissa Aymá
 DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: finalizado\nMinuto a 
- minuto:\nhttps://www.aiscore.com/match-deportivo-saprissa-deportivo-mixco/
- wv78xivzx6rhokr
+ minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-saprissa/657
+ 4
 END:VEVENT
 BEGIN:VEVENT
 UID:3abc0cf7ea57d903@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - C.S. Cartaginés (3-2)
 DTSTART;TZID=America/Costa_Rica:20260815T200000
 DTEND;TZID=America/Costa_Rica:20260815T220000
 LOCATION:Estadio Ricardo Saprissa Ayma
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.aiscore.com/match-deportivo-saprissa-cs-cartagi
- nes/edq09il1o0lteqx
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:89da125e03b0a612@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Inter San Carlos - Deportivo Saprissa (1-0)
 DTSTART;TZID=America/Costa_Rica:20260823T150000
 DTEND;TZID=America/Costa_Rica:20260823T170000
 LOCATION:Estadio Carlos Ugalde Alvarez
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:0e349ab6e575a048@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Olimpia - Deportivo Saprissa (2-1)
 DTSTART;TZID=America/Costa_Rica:20260827T203000
 DTEND;TZID=America/Costa_Rica:20260827T223000
 LOCATION:Estadio Nacional Chelato Uclés
 DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: finalizado\nMinuto a 
- minuto:\nhttps://www.aiscore.com/match-cd-olimpia-deportivo-saprissa/69759
- igen5mhgk2
+ minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-saprissa/657
+ 4
 END:VEVENT
 BEGIN:VEVENT
 UID:1c17c66fbd069a33@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - Escorpiones F.C. (2-1)
 DTSTART;TZID=America/Costa_Rica:20260830T180000
 DTEND;TZID=America/Costa_Rica:20260830T200000
 LOCATION:Estadio Ricardo Saprissa Ayma
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.aiscore.com/match-deportivo-saprissa-escorpione
- s-belen/g6763i5or2gso7r
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:ae1bcb8ea5543f97@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:L.D. Alajuelense - Deportivo Saprissa (0-2)
 DTSTART;TZID=America/Costa_Rica:20260905T200000
 DTEND;TZID=America/Costa_Rica:20260905T220000
 LOCATION:Estadio Alejandro Morera Soto
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.aiscore.com/match-ld-alajuelense-deportivo-sapr
- issa/xvkjoi8ynlms879
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:af23efbb8764d034@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - CS Cartaginés (2-2)
 DTSTART;TZID=America/Costa_Rica:20260909T190600
 DTEND;TZID=America/Costa_Rica:20260909T210600
 LOCATION:Estadio Ricardo Saprissa Aymá
 DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: finalizado\nMinuto a 
- minuto:\nhttps://www.aiscore.com/match-deportivo-saprissa-cs-cartagines/9g
- klzi1gjyvam7x
+ minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-saprissa/657
+ 4
 END:VEVENT
 BEGIN:VEVENT
 UID:05af54cbae7995e0@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Sporting F.C. - Deportivo Saprissa (4-2)
 DTSTART;TZID=America/Costa_Rica:20260913T160000
 DTEND;TZID=America/Costa_Rica:20260913T180000
 LOCATION:Estadio Puente Piedra\, Grecia
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:4ce10c67c19d3e85@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:CS Cartaginés - Deportivo Saprissa (3-2)
 DTSTART;TZID=America/Costa_Rica:20260916T183000
 DTEND;TZID=America/Costa_Rica:20260916T203000
 LOCATION:Estadio José Rafael Fello Meza
 DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: finalizado\nMinuto a 
- minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-saprissa/657
+ 4
 END:VEVENT
 BEGIN:VEVENT
 UID:a5ca771618400c88@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - C.S. Herediano (2-0)
 DTSTART;TZID=America/Costa_Rica:20260919T200000
 DTEND;TZID=America/Costa_Rica:20260919T220000
 LOCATION:Estadio Ricardo Saprissa Ayma
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:c22b9c0625d2eac5@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Escorpiones F.C. - Deportivo Saprissa (1-0)
 DTSTART;TZID=America/Costa_Rica:20261011T170000
 DTEND;TZID=America/Costa_Rica:20261011T190000
 LOCATION:Estadio Rafael Bolaños
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:b952be01f78552b9@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - Sporting F.C. (6-0)
 DTSTART;TZID=America/Costa_Rica:20261015T200000
 DTEND;TZID=America/Costa_Rica:20261015T220000
 LOCATION:Estadio Ricardo Saprissa Ayma
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:dfd8d59db92800ed@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:C.S. Cartaginés - Deportivo Saprissa
 DTSTART;TZID=America/Costa_Rica:20261018T110000
 DTEND;TZID=America/Costa_Rica:20261018T130000
 LOCATION:Estadio José Rafael "Fello" Meza
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/match/cs-cartagines-d
+ eportivo-saprissa/zGcsUPc
 END:VEVENT
 BEGIN:VEVENT
 UID:e19cb0b26c04287f@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:LA Firpo - Deportivo Saprissa
 DTSTART;TZID=America/Costa_Rica:20261021T183000
 DTEND;TZID=America/Costa_Rica:20261021T203000
 LOCATION:Estadio Jorge “El Mágico” Gonzalez
 DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: programado\nMinuto a 
- minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-saprissa/657
+ 4
 END:VEVENT
 BEGIN:VEVENT
 UID:f433a8f2837aeb7a@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:A.D. San Carlos - Deportivo Saprissa
 DTSTART;TZID=America/Costa_Rica:20261025T160000
 DTEND;TZID=America/Costa_Rica:20261025T180000
 LOCATION:Estadio Carlos Ugalde Alvarez
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:41e7d8797ccb1f71@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - LA Firpo
 DTSTART;TZID=America/Costa_Rica:20261028T183000
 DTEND;TZID=America/Costa_Rica:20261028T203000
 LOCATION:Estadio Ricardo Saprissa Aymá
 DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: programado\nMinuto a 
- minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw
+ minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-saprissa/657
+ 4
 END:VEVENT
 BEGIN:VEVENT
 UID:998ec9b52868f4de@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - L.D. Alajuelense
 DTSTART;TZID=America/Costa_Rica:20261101T160000
 DTEND;TZID=America/Costa_Rica:20261101T180000
 LOCATION:Estadio Ricardo Saprissa Ayma
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:3981401b3a5db4c5@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:C.S. Herediano - Deportivo Saprissa
 DTSTART;TZID=America/Costa_Rica:20261105T200000
 DTEND;TZID=America/Costa_Rica:20261105T220000
 LOCATION:Estadio Carlos Alvarado
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:b8949366e353e356@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - Puntarenas F.C.
 DTSTART;TZID=America/Costa_Rica:20261108T160000
 DTEND;TZID=America/Costa_Rica:20261108T180000
 LOCATION:Estadio Ricardo Saprissa Ayma
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:bb95e3bfb0ff33b8@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Municipal Pérez Zeledón - Deportivo Saprissa
 DTSTART;TZID=America/Costa_Rica:20261121T200000
 DTEND;TZID=America/Costa_Rica:20261121T220000
 LOCATION:Estadio Municipal de Pérez Zeledón
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 BEGIN:VEVENT
 UID:7e707e400a0c5dc9@saprissa-calendar.ec5987
-DTSTAMP:20261018T164138Z
+DTSTAMP:20261018T164706Z
 SUMMARY:Deportivo Saprissa - Inter San Carlos
 DTSTART;TZID=America/Costa_Rica:20261129T150000
 DTEND;TZID=America/Costa_Rica:20261129T170000
 LOCATION:Estadio Ricardo Saprissa Ayma
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
- uto a minuto:\nhttps://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i
- 27jw
+ uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
+ sa/6574
 END:VEVENT
 END:VCALENDAR

@@ -14,10 +14,11 @@
     "away_score": 1,
     "source_url": "https://www.saprissa.com/partidos/recopa-2026-sap-her-fello",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:39.046651+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324708+00:00",
     "source": "saprissa",
     "source_match_id": null,
-    "saprissa_url": null
+    "saprissa_url": null,
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "cd63f43ffc6ebe88",
@@ -34,10 +35,11 @@
     "away_score": 1,
     "source_url": "https://www.unafut.com/en/partido/396186",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771220+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324714+00:00",
     "source": "unafut",
     "source_match_id": "2373:396186",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-pz"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-pz",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "9e951d7fdbfde0f8",
@@ -54,10 +56,11 @@
     "away_score": 2,
     "source_url": "https://www.concacaf.com/competitions/central-american-cup/clubs/saprissa/index",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771324+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324717+00:00",
     "source": "concacaf",
     "source_match_id": "concacaf::Football_Match::850d46504a5c4cd9b26f270b76712835",
-    "saprissa_url": "https://www.saprissa.com/partidos/centroamericana-umecit-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/centroamericana-umecit-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "ef6dbd4aac5598ad",
@@ -74,10 +77,11 @@
     "away_score": 1,
     "source_url": "https://www.unafut.com/en/partido/396196",
     "live_score_url": "https://www.aiscore.com/match-deportivo-saprissa-ad-san-carlos/zrkn6i4genniwql",
-    "last_seen_at": "2026-10-18T16:41:38.771244+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324719+00:00",
     "source": "unafut",
     "source_match_id": "2373:396196",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-sancarlos"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-sancarlos",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "d093c7df338c658e",
@@ -94,10 +98,11 @@
     "away_score": 1,
     "source_url": "https://www.concacaf.com/competitions/central-american-cup/clubs/saprissa/index",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771328+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324721+00:00",
     "source": "concacaf",
     "source_match_id": "concacaf::Football_Match::5243b28301414eec945e2927a59e49b0",
-    "saprissa_url": "https://www.saprissa.com/partidos/centroamericana-saprissa-alianza"
+    "saprissa_url": "https://www.saprissa.com/partidos/centroamericana-saprissa-alianza",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "0842953904cd9ebb",
@@ -114,10 +119,11 @@
     "away_score": 2,
     "source_url": "https://www.unafut.com/en/partido/396148",
     "live_score_url": "https://www.aiscore.com/match-puntarenas-fc-deportivo-saprissa/ndkz6i3yjojixq3",
-    "last_seen_at": "2026-10-18T16:41:38.771254+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324723+00:00",
     "source": "unafut",
     "source_match_id": "2373:396148",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-pfc-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-pfc-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "eb82fd6f73526932",
@@ -134,10 +140,11 @@
     "away_score": 0,
     "source_url": "https://www.concacaf.com/competitions/central-american-cup/clubs/saprissa/index",
     "live_score_url": "https://www.aiscore.com/match-deportivo-saprissa-deportivo-mixco/wv78xivzx6rhokr",
-    "last_seen_at": "2026-10-18T16:41:38.771332+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324724+00:00",
     "source": "concacaf",
     "source_match_id": "concacaf::Football_Match::54b99fbf59d647fe8de286b7d2cb6bce",
-    "saprissa_url": "https://www.saprissa.com/partidos/centroamericana-saprissa-mixco"
+    "saprissa_url": "https://www.saprissa.com/partidos/centroamericana-saprissa-mixco",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "3abc0cf7ea57d903",
@@ -154,10 +161,11 @@
     "away_score": 2,
     "source_url": "https://www.unafut.com/en/partido/396147",
     "live_score_url": "https://www.aiscore.com/match-deportivo-saprissa-cs-cartagines/edq09il1o0lteqx",
-    "last_seen_at": "2026-10-18T16:41:38.771260+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324726+00:00",
     "source": "unafut",
     "source_match_id": "2373:396147",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-csc"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-csc",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "89da125e03b0a612",
@@ -174,10 +182,11 @@
     "away_score": 0,
     "source_url": "https://www.unafut.com/en/partido/396160",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771265+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324728+00:00",
     "source": "unafut",
     "source_match_id": "2373:396160",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-inter-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-inter-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "0e349ab6e575a048",
@@ -194,10 +203,11 @@
     "away_score": 1,
     "source_url": "https://www.concacaf.com/competitions/central-american-cup/clubs/saprissa/index",
     "live_score_url": "https://www.aiscore.com/match-cd-olimpia-deportivo-saprissa/69759igen5mhgk2",
-    "last_seen_at": "2026-10-18T16:41:38.771336+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324729+00:00",
     "source": "concacaf",
     "source_match_id": "concacaf::Football_Match::36e74a6dfb834c8da8a573b93eada6ee",
-    "saprissa_url": "https://www.saprissa.com/partidos/centroamericana-olimpia-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/centroamericana-olimpia-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "1c17c66fbd069a33",
@@ -214,10 +224,11 @@
     "away_score": 1,
     "source_url": "https://www.unafut.com/en/partido/396163",
     "live_score_url": "https://www.aiscore.com/match-deportivo-saprissa-escorpiones-belen/g6763i5or2gso7r",
-    "last_seen_at": "2026-10-18T16:41:38.771270+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324731+00:00",
     "source": "unafut",
     "source_match_id": "2373:396163",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-liberia"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-liberia",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "ae1bcb8ea5543f97",
@@ -234,10 +245,11 @@
     "away_score": 2,
     "source_url": "https://www.unafut.com/en/partido/396227",
     "live_score_url": "https://www.aiscore.com/match-ld-alajuelense-deportivo-saprissa/xvkjoi8ynlms879",
-    "last_seen_at": "2026-10-18T16:41:38.771274+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324733+00:00",
     "source": "unafut",
     "source_match_id": "2373:396227",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-lda-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-lda-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "af23efbb8764d034",
@@ -254,10 +266,11 @@
     "away_score": 2,
     "source_url": "https://www.concacaf.com/competitions/central-american-cup/clubs/saprissa/index",
     "live_score_url": "https://www.aiscore.com/match-deportivo-saprissa-cs-cartagines/9gklzi1gjyvam7x",
-    "last_seen_at": "2026-10-18T16:41:38.771340+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324734+00:00",
     "source": "concacaf",
     "source_match_id": "concacaf::Football_Match::046aba79ba044d32a1378f1dd8a63fbb",
-    "saprissa_url": "https://www.saprissa.com/partidos/centroamericana-saprissa-csc"
+    "saprissa_url": "https://www.saprissa.com/partidos/centroamericana-saprissa-csc",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "05af54cbae7995e0",
@@ -274,10 +287,11 @@
     "away_score": 2,
     "source_url": "https://www.unafut.com/en/partido/396157",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771278+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324736+00:00",
     "source": "unafut",
     "source_match_id": "2373:396157",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-sporting-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-sporting-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "4ce10c67c19d3e85",
@@ -294,10 +308,11 @@
     "away_score": 2,
     "source_url": "https://www.concacaf.com/competitions/central-american-cup/clubs/saprissa/index",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771344+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324738+00:00",
     "source": "concacaf",
     "source_match_id": "concacaf::Football_Match::ca7822b408dd4a438f57dff0a2bd6f1e",
-    "saprissa_url": "https://www.saprissa.com/partidos/centroamericana-csc-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/centroamericana-csc-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "a5ca771618400c88",
@@ -314,10 +329,11 @@
     "away_score": 0,
     "source_url": "https://www.unafut.com/en/partido/396199",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771283+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324739+00:00",
     "source": "unafut",
     "source_match_id": "2373:396199",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-csh"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-csh",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "c22b9c0625d2eac5",
@@ -334,10 +350,11 @@
     "away_score": 0,
     "source_url": "https://www.unafut.com/en/partido/396209",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771287+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324741+00:00",
     "source": "unafut",
     "source_match_id": "2373:396209",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-lib-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-lib-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "b952be01f78552b9",
@@ -354,10 +371,11 @@
     "away_score": 0,
     "source_url": "https://www.unafut.com/en/partido/396207",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771291+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324743+00:00",
     "source": "unafut",
     "source_match_id": "2373:396207",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-sporting"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-sporting",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "dfd8d59db92800ed",
@@ -374,10 +392,11 @@
     "away_score": null,
     "source_url": "https://www.unafut.com/en/partido/396178",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771295+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324745+00:00",
     "source": "unafut",
     "source_match_id": "2373:396178",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-csc-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-csc-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/match/cs-cartagines-deportivo-saprissa/zGcsUPc"
   },
   {
     "id": "e19cb0b26c04287f",
@@ -394,10 +413,11 @@
     "away_score": null,
     "source_url": "https://www.concacaf.com/competitions/central-american-cup/clubs/saprissa/index",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771351+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324746+00:00",
     "source": "concacaf",
     "source_match_id": "concacaf::Football_Match::918fcdb014874157ba8fcc4730a43f9f",
-    "saprissa_url": "https://www.saprissa.com/partidos/playin-centroamericana-firpo-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/playin-centroamericana-firpo-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "f433a8f2837aeb7a",
@@ -414,10 +434,11 @@
     "away_score": null,
     "source_url": "https://www.unafut.com/en/partido/396210",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771300+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324748+00:00",
     "source": "unafut",
     "source_match_id": "2373:396210",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-sancarlos-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-sancarlos-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "41e7d8797ccb1f71",
@@ -434,10 +455,11 @@
     "away_score": null,
     "source_url": "https://www.concacaf.com/competitions/central-american-cup/clubs/saprissa/index",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771355+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324750+00:00",
     "source": "concacaf",
     "source_match_id": "concacaf::Football_Match::9eb694d4f50547659bfb9e54b8e1218e",
-    "saprissa_url": "https://www.saprissa.com/partidos/playin-centroamericana-saprissa-firpo"
+    "saprissa_url": "https://www.saprissa.com/partidos/playin-centroamericana-saprissa-firpo",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "998ec9b52868f4de",
@@ -454,10 +476,11 @@
     "away_score": null,
     "source_url": "https://www.unafut.com/en/partido/396149",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771304+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324751+00:00",
     "source": "unafut",
     "source_match_id": "2373:396149",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-lda"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-lda",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "3981401b3a5db4c5",
@@ -474,10 +497,11 @@
     "away_score": null,
     "source_url": "https://www.unafut.com/en/partido/396204",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771308+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324753+00:00",
     "source": "unafut",
     "source_match_id": "2373:396204",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-csh-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-csh-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "b8949366e353e356",
@@ -494,10 +518,11 @@
     "away_score": null,
     "source_url": "https://www.unafut.com/en/partido/396176",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771312+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324755+00:00",
     "source": "unafut",
     "source_match_id": "2373:396176",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-pfc"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-pfc",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "bb95e3bfb0ff33b8",
@@ -514,10 +539,11 @@
     "away_score": null,
     "source_url": "https://www.unafut.com/en/partido/396190",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771316+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324756+00:00",
     "source": "unafut",
     "source_match_id": "2373:396190",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-pz-saprissa"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-pz-saprissa",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   },
   {
     "id": "7e707e400a0c5dc9",
@@ -534,9 +560,10 @@
     "away_score": null,
     "source_url": "https://www.unafut.com/en/partido/396224",
     "live_score_url": "https://www.aiscore.com/team-deportivo-saprissa/o17pji0p20i27jw",
-    "last_seen_at": "2026-10-18T16:41:38.771320+00:00",
+    "last_seen_at": "2026-10-18T16:47:06.324758+00:00",
     "source": "unafut",
     "source_match_id": "2373:396224",
-    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-inter"
+    "saprissa_url": "https://www.saprissa.com/partidos/masc-apertura2026-saprissa-inter",
+    "minute_by_minute_url": "https://www.sofascore.com/es/football/team/deportivo-saprissa/6574"
   }
 ]

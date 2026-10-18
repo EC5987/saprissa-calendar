@@ -109,7 +109,8 @@ class OfficialParserTests(unittest.TestCase):
             update.write_json(data_path, [original])
             args = argparse.Namespace(data_file=str(data_path), ics_file=str(ics_path), no_aiscore=True)
             for attempt in range(2):
-                with patch.object(update, "fetch", side_effect=[page, results]):
+                with patch.object(update, "load_competition_matches", return_value=[]), \
+                     patch.object(update, "fetch", side_effect=[page, results]):
                     self.assertEqual(update.run(args), 0)
                 saved = next(m for m in update.load_existing(data_path) if m["source_url"] == source)
                 self.assertEqual(saved["time"], "11:00")
@@ -131,20 +132,17 @@ class OfficialParserTests(unittest.TestCase):
         update.apply_verified_kickoffs(matches)
         self.assertEqual(matches[0].time, "23:00")
 
-    def test_parse_failure_leaves_existing_files_untouched(self):
-        for failed_source in [update.OFFICIAL_URL, update.RESULTS_URL]:
-            with self.subTest(source=failed_source), tempfile.TemporaryDirectory() as directory:
-                data_path = Path(directory) / "matches.json"
-                ics_path = Path(directory) / "saprissa.ics"
-                data_path.write_text("[]\n")
-                ics_path.write_text("existing feed")
-                args = argparse.Namespace(data_file=str(data_path), ics_file=str(ics_path), no_aiscore=True)
-                def fetch(url):
-                    return "<html>Changed layout</html>" if url == failed_source else card()
-                with patch.object(update, "fetch", side_effect=fetch):
-                    self.assertEqual(update.run(args), 1)
-                self.assertEqual(data_path.read_text(), "[]\n")
-                self.assertEqual(ics_path.read_text(), "existing feed")
+    def test_primary_failure_leaves_existing_files_untouched(self):
+        with tempfile.TemporaryDirectory() as directory:
+            data_path = Path(directory) / "matches.json"
+            ics_path = Path(directory) / "saprissa.ics"
+            data_path.write_text("[]\n")
+            ics_path.write_text("existing feed")
+            args = argparse.Namespace(data_file=str(data_path), ics_file=str(ics_path), no_aiscore=True)
+            with patch.object(update, "load_competition_matches", side_effect=update.official_sources.SourceError("source failed")):
+                self.assertEqual(update.run(args), 1)
+            self.assertEqual(data_path.read_text(), "[]\n")
+            self.assertEqual(ics_path.read_text(), "existing feed")
 
 
 if __name__ == "__main__":

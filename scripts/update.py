@@ -15,6 +15,11 @@ from typing import Iterable
 from urllib.error import URLError
 from urllib.request import Request, urlopen
 
+if __package__:
+    from . import official_sources
+else:
+    import official_sources
+
 
 OFFICIAL_URL = "https://www.saprissa.com/calendario"
 RESULTS_URL = "https://www.saprissa.com/resultados"
@@ -110,6 +115,9 @@ class Match:
     source_url: str = OFFICIAL_URL
     live_score_url: str = AISCORE_URL
     last_seen_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    source: str = "saprissa"
+    source_match_id: str | None = None
+    saprissa_url: str | None = None
 
     def to_dict(self) -> dict:
         return {
@@ -128,6 +136,9 @@ class Match:
             "source_url": self.source_url,
             "live_score_url": self.live_score_url,
             "last_seen_at": self.last_seen_at,
+            "source": self.source,
+            "source_match_id": self.source_match_id,
+            "saprissa_url": self.saprissa_url,
         }
 
     @classmethod
@@ -148,6 +159,9 @@ class Match:
             source_url=str(data.get("source_url") or OFFICIAL_URL),
             live_score_url=str(data.get("live_score_url") or AISCORE_URL),
             last_seen_at=str(data.get("last_seen_at") or datetime.now(timezone.utc).isoformat()),
+            source=str(data.get("source") or "saprissa"),
+            source_match_id=data.get("source_match_id"),
+            saprissa_url=data.get("saprissa_url"),
         )
 
 
@@ -754,6 +768,76 @@ def costa_rica_today() -> date:
     return datetime.now(timezone(timedelta(hours=-6))).date()
 
 
+def competition_group(match: Match) -> str:
+    name = normalize_ascii(match.competition).lower()
+    if "concacaf" in name or "centroamericana" in name:
+        return "concacaf"
+    if any(word in name for word in ("recopa", "supercopa", "torneo de copa", "copa costa rica")):
+        return "domestic-cup"
+    if any(word in name for word in ("primera division", "apertura", "clausura")):
+        return "domestic-league"
+    return normalize_team(name)
+
+
+def same_fixture(left: Match, right: Match) -> bool:
+    if left.source == right.source and left.source_match_id and right.source_match_id:
+        return left.source_match_id == right.source_match_id
+    if competition_group(left) != competition_group(right):
+        return False
+    if not (
+        teams_match(left.home_team.replace(".", ""), right.home_team.replace(".", ""))
+        and teams_match(left.away_team.replace(".", ""), right.away_team.replace(".", ""))
+    ):
+        return False
+    if left.saprissa_url and left.saprissa_url == right.source_url:
+        return True
+    return abs((date.fromisoformat(left.date) - date.fromisoformat(right.date)).days) <= 3
+
+
+def load_competition_matches() -> list[Match]:
+    rows = official_sources.fetch_unafut(fetch) + official_sources.fetch_concacaf(fetch)
+    return [Match.from_dict(row) for row in rows]
+
+
+def prioritize_competition_matches(primary: list[Match], supplemental: list[Match], existing: list[dict]) -> list[Match]:
+    previous = [Match.from_dict(item) for item in existing]
+    merged = list(supplemental)
+    used_ids: set[str] = set()
+    for match in primary:
+        candidates = [old for old in previous if same_fixture(match, old)]
+        if len(candidates) > 1:
+            raise official_sources.SourceError(
+                f"Ambiguous calendar identity for {match.home_team} - {match.away_team} on {match.date}."
+            )
+        old = candidates[0] if candidates else None
+        if old:
+            match.id = old.id
+            match.saprissa_url = old.saprissa_url
+            if old.source == "saprissa" and "/partidos/" in old.source_url:
+                match.saprissa_url = old.source_url
+            match.live_score_url = old.live_score_url
+        matching_supplements = [item for item in merged if item.id == match.id or same_fixture(match, item)]
+        if not match.saprissa_url:
+            match.saprissa_url = next((item.source_url for item in matching_supplements
+                                      if item.source == "saprissa" and "/partidos/" in item.source_url), None)
+        if not old and matching_supplements:
+            match.id = matching_supplements[0].id
+            match.live_score_url = matching_supplements[0].live_score_url
+        if match.id in used_ids:
+            raise official_sources.SourceError("Two competition fixtures would share the same calendar event ID.")
+        used_ids.add(match.id)
+        # Authoritative scores and kickoff times win, while subscribers keep the same UID.
+        if old:
+            current = match.to_dict()
+            current.pop("last_seen_at")
+            if all(old.to_dict().get(key) == value for key, value in current.items()):
+                match.last_seen_at = old.last_seen_at
+        removed_ids = {item.id for item in matching_supplements}
+        merged = [item for item in merged if item.id not in removed_ids]
+        merged.append(match)
+    return sorted(merged, key=lambda item: (item.date, item.time or "99:99", item.home_team, item.away_team))
+
+
 def merge_matches(
     result_matches: list[Match],
     fixture_matches: list[Match],
@@ -890,6 +974,11 @@ def spanish_status(value: str) -> str:
         "scheduled": "programado",
         "in_progress": "en vivo",
         "final": "finalizado",
+        "postponed": "pospuesto",
+        "cancelled": "cancelado",
+        "abandoned": "abandonado",
+        "delayed": "retrasado",
+        "suspended": "suspendido",
     }
     return statuses.get(value, value)
 
@@ -937,6 +1026,8 @@ def write_ics(path: Path, matches: Iterable[Match]) -> None:
         add_ics_line(lines, f"UID:{match.id}@saprissa-calendar.ec5987")
         add_ics_line(lines, f"DTSTAMP:{format_ics_stamp(match.last_seen_at)}")
         add_ics_line(lines, f"SUMMARY:{ics_escape(summary)}")
+        if match.status == "cancelled":
+            add_ics_line(lines, "STATUS:CANCELLED")
 
         if match.is_time_tbd or not match.time:
             start = date.fromisoformat(match.date)
@@ -965,17 +1056,20 @@ def run(args: argparse.Namespace) -> int:
     ics_file = Path(args.ics_file)
     existing = load_existing(data_file)
 
+    try:
+        primary_matches = load_competition_matches()
+    except (URLError, TimeoutError, ValueError, KeyError, TypeError) as error:
+        print(f"Competition source update failed; keeping the existing feed: {error}", file=sys.stderr)
+        return 1
+
     fixture_matches: list[Match] = []
     result_matches: list[Match] = []
-    fixture_source_ok = False
 
     try:
         official_html = fetch(OFFICIAL_URL)
         fixture_matches = parse_official_schedule(official_html)
-        fixture_source_ok = True
     except OfficialParseError as error:
-        print(error, file=sys.stderr)
-        return 1
+        print(f"Saprissa supplemental calendar skipped: {error}", file=sys.stderr)
     except (URLError, TimeoutError) as error:
         print(f"Saprissa calendar fetch skipped: {error}", file=sys.stderr)
 
@@ -983,12 +1077,11 @@ def run(args: argparse.Namespace) -> int:
         results_html = fetch(RESULTS_URL)
         result_matches = parse_official_results(results_html)
     except OfficialParseError as error:
-        print(error, file=sys.stderr)
-        return 1
+        print(f"Saprissa supplemental results skipped: {error}", file=sys.stderr)
     except (URLError, TimeoutError) as error:
         print(f"Saprissa results fetch skipped: {error}", file=sys.stderr)
 
-    if not fixture_matches and not result_matches and not existing:
+    if not primary_matches and not fixture_matches and not result_matches and not existing:
         print("No matches found on the official Saprissa calendar page.", file=sys.stderr)
         return 1
 
@@ -999,8 +1092,13 @@ def run(args: argparse.Namespace) -> int:
         result_matches,
         fixture_matches,
         existing,
-        prune_stale_future=fixture_source_ok,
+        prune_stale_future=False,
     )
+    try:
+        matches = prioritize_competition_matches(primary_matches, matches, existing)
+    except official_sources.SourceError as error:
+        print(f"Source reconciliation failed; keeping the existing feed: {error}", file=sys.stderr)
+        return 1
     apply_verified_kickoffs(matches)
     discard_live_score_state(matches)
 

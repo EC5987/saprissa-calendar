@@ -225,12 +225,12 @@ DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
 END:VEVENT
 BEGIN:VEVENT
 UID:e19cb0b26c04287f@saprissa-calendar.ec5987
-DTSTAMP:20261018T164706Z
-SUMMARY:LA Firpo - Deportivo Saprissa
+DTSTAMP:20261022T073935Z
+SUMMARY:LA Firpo - Deportivo Saprissa (0-0)
 DTSTART;TZID=America/Costa_Rica:20261021T183000
 DTEND;TZID=America/Costa_Rica:20261021T203000
 LOCATION:Estadio Jorge “El Mágico” Gonzalez
-DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: programado\nMinuto a 
+DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: finalizado\nMinuto a 
  minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-saprissa/657
  4
 END:VEVENT

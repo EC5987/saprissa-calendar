@@ -236,12 +236,12 @@ DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: finalizado\nMinuto a
 END:VEVENT
 BEGIN:VEVENT
 UID:f433a8f2837aeb7a@saprissa-calendar.ec5987
-DTSTAMP:20261018T164706Z
-SUMMARY:A.D. San Carlos - Deportivo Saprissa
+DTSTAMP:20261026T002553Z
+SUMMARY:A.D. San Carlos - Deportivo Saprissa (2-1)
 DTSTART;TZID=America/Costa_Rica:20261025T160000
 DTEND;TZID=America/Costa_Rica:20261025T180000
 LOCATION:Estadio Carlos Ugalde Alvarez
-DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
+DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
  uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
  sa/6574
 END:VEVENT

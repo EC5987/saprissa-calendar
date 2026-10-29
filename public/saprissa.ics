@@ -247,12 +247,12 @@ DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
 END:VEVENT
 BEGIN:VEVENT
 UID:41e7d8797ccb1f71@saprissa-calendar.ec5987
-DTSTAMP:20261018T164706Z
-SUMMARY:Deportivo Saprissa - LA Firpo
+DTSTAMP:20261029T023059Z
+SUMMARY:Deportivo Saprissa - LA Firpo (2-1)
 DTSTART;TZID=America/Costa_Rica:20261028T183000
 DTEND;TZID=America/Costa_Rica:20261028T203000
 LOCATION:Estadio Ricardo Saprissa Aymá
-DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: programado\nMinuto a 
+DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: finalizado\nMinuto a 
  minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-saprissa/657
  4
 END:VEVENT

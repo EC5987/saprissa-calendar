@@ -258,12 +258,12 @@ DESCRIPTION:Copa Centroamericana de Concacaf\nEstado: finalizado\nMinuto a
 END:VEVENT
 BEGIN:VEVENT
 UID:998ec9b52868f4de@saprissa-calendar.ec5987
-DTSTAMP:20261018T164706Z
-SUMMARY:Deportivo Saprissa - L.D. Alajuelense
+DTSTAMP:20261102T004908Z
+SUMMARY:Deportivo Saprissa - L.D. Alajuelense (0-0)
 DTSTART;TZID=America/Costa_Rica:20261101T160000
 DTEND;TZID=America/Costa_Rica:20261101T180000
 LOCATION:Estadio Ricardo Saprissa Ayma
-DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
+DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
  uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
  sa/6574
 END:VEVENT

@@ -269,12 +269,12 @@ DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
 END:VEVENT
 BEGIN:VEVENT
 UID:3981401b3a5db4c5@saprissa-calendar.ec5987
-DTSTAMP:20261018T164706Z
-SUMMARY:C.S. Herediano - Deportivo Saprissa
+DTSTAMP:20261106T075730Z
+SUMMARY:C.S. Herediano - Deportivo Saprissa (0-2)
 DTSTART;TZID=America/Costa_Rica:20261105T200000
 DTEND;TZID=America/Costa_Rica:20261105T220000
 LOCATION:Estadio Carlos Alvarado
-DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
+DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
  uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
  sa/6574
 END:VEVENT

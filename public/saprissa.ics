@@ -280,12 +280,12 @@ DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
 END:VEVENT
 BEGIN:VEVENT
 UID:b8949366e353e356@saprissa-calendar.ec5987
-DTSTAMP:20261018T164706Z
-SUMMARY:Deportivo Saprissa - Puntarenas F.C.
+DTSTAMP:20261109T024207Z
+SUMMARY:Deportivo Saprissa - Puntarenas F.C. (2-1)
 DTSTART;TZID=America/Costa_Rica:20261108T160000
 DTEND;TZID=America/Costa_Rica:20261108T180000
 LOCATION:Estadio Ricardo Saprissa Ayma
-DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
+DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
  uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
  sa/6574
 END:VEVENT

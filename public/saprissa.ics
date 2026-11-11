@@ -302,10 +302,10 @@ DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
 END:VEVENT
 BEGIN:VEVENT
 UID:7e707e400a0c5dc9@saprissa-calendar.ec5987
-DTSTAMP:20261018T164706Z
+DTSTAMP:20261111T224658Z
 SUMMARY:Deportivo Saprissa - Inter San Carlos
-DTSTART;TZID=America/Costa_Rica:20261129T150000
-DTEND;TZID=America/Costa_Rica:20261129T170000
+DTSTART;TZID=America/Costa_Rica:20261128T190000
+DTEND;TZID=America/Costa_Rica:20261128T210000
 LOCATION:Estadio Ricardo Saprissa Ayma
 DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
  uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris

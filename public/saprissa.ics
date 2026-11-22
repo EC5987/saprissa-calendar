@@ -291,12 +291,12 @@ DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
 END:VEVENT
 BEGIN:VEVENT
 UID:bb95e3bfb0ff33b8@saprissa-calendar.ec5987
-DTSTAMP:20261018T164706Z
-SUMMARY:Municipal Pérez Zeledón - Deportivo Saprissa
+DTSTAMP:20261122T065759Z
+SUMMARY:Municipal Pérez Zeledón - Deportivo Saprissa (1-3)
 DTSTART;TZID=America/Costa_Rica:20261121T200000
 DTEND;TZID=America/Costa_Rica:20261121T220000
 LOCATION:Estadio Municipal de Pérez Zeledón
-DESCRIPTION:Primera División - Torneo de Apertura\nEstado: programado\nMin
+DESCRIPTION:Primera División - Torneo de Apertura\nEstado: finalizado\nMin
  uto a minuto:\nhttps://www.sofascore.com/es/football/team/deportivo-sapris
  sa/6574
 END:VEVENT
